@@ -159,7 +159,6 @@ I'm always interested in discussing:
 
 **Location**: Daegu, South Korea 🇰🇷  
 **Email**: osama.ikram007@gmail.com  
-**WhatsApp**: +82 1068476020
 
 <div align="center">
 
