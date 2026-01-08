@@ -6,7 +6,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/uikram)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:osama.ikram007@gmail.com)
 
-**PhD Candidate | AI Researcher | Robotics Enthusiast**
+**Graduate Student | AI Researcher | Robotics Enthusiast**
 
 *Specializing in Large Language Models, Computer Vision, and Autonomous Systems*
 
@@ -16,7 +16,7 @@
 
 ## 🚀 About Me
 
-I'm a PhD candidate at **Daegu Gyeongbuk Institute of Science and Technology (DGIST)**, South Korea, focusing on cutting-edge AI research that bridges **Large Language Models**, **Computer Vision**, and **Robotics**. My work aims to create intelligent autonomous systems that integrate perception, reasoning, and control for real-world applications.
+I'm a Graduate Student and Researcher at **Daegu Gyeongbuk Institute of Science and Technology (DGIST)**, South Korea, focusing on cutting-edge AI research that bridges **Large Language Models**, **Computer Vision**, and **Robotics**. My work aims to create intelligent autonomous systems that integrate perception, reasoning, and control for real-world applications.
 
 With over **2 years of applied AI research experience**, I've worked on:
 - 🎯 Defense-grade vision systems with YOLO-based object detection
@@ -41,9 +41,9 @@ research_areas = {
 
 ## 💼 Experience Highlights
 
-### 🎓 PhD Candidate @ DGIST
+### 🎓 Graduate Student @ DGIST
 **Sep 2025 - Present | Daegu, South Korea**
-- Conducting doctoral research in AI, focusing on LLMs, computer vision, and robotics
+- Conducting research in AI, focusing on LLMs, computer vision, and robotics
 - Developing autonomous systems that integrate perception and decision-making
 
 ### 🛡️ AI & ML Scientist @ National Aerospace Science & Technology Park
@@ -139,7 +139,7 @@ research_areas = {
 
 ## 🎓 Education
 
-**PhD in Artificial Intelligence** (In Progress)  
+**Masters in Artificial Intelligence** (In Progress)  
 *Daegu Gyeongbuk Institute of Science and Technology (DGIST)*  
 📍 Daegu, South Korea | 🗓️ Sep 2025 - Present
 
