@@ -1,1076 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usama Ikram - AI Researcher</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --background: #ffffff;
-            --surface: #f9fafb;
-            --border: #e5e7eb;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-color: #3b82f6;
-                --secondary-color: #60a5fa;
-                --accent-color: #2563eb;
-                --text-primary: #f9fafb;
-                --text-secondary: #d1d5db;
-                --background: #111827;
-                --surface: #1f2937;
-                --border: #374151;
-                --shadow: rgba(0, 0, 0, 0.3);
-            }
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--background);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px var(--shadow);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            nav {
-                background: rgba(17, 24, 39, 0.95);
-            }
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
-        }
-
-        .hero .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-content h2 {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px var(--shadow);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-card {
-            background: var(--surface);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px var(--shadow);
-            text-align: center;
-            max-width: 400px;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 8px 30px var(--shadow);
-        }
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--background);
-            color: var(--primary-color);
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        section .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        #about {
-            background: var(--surface);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .research-interests {
-            background: var(--background);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow);
-        }
-
-        .research-interests h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .interest-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .tag {
-            padding: 0.5rem 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            transition: all 0.3s;
-        }
-
-        .tag:hover {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 3px solid var(--background);
-        }
-
-        .timeline-content {
-            background: var(--surface);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .timeline-content h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .company {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-content ul {
-            list-style: none;
-            padding-left: 1rem;
-        }
-
-        .timeline-content li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            position: relative;
-        }
-
-        .timeline-content li::before {
-            content: '▹';
-            position: absolute;
-            left: -1rem;
-            color: var(--primary-color);
-        }
-
-        /* Projects Section */
-        #projects {
-            background: var(--surface);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--background);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px var(--shadow);
-        }
-
-        .project-header {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-        }
-
-        .project-header h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-body h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            margin-top: auto;
-        }
-        
-        .project-body h4:first-child {
-            margin-top: 0;
-        }
-
-        .project-body p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--surface);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-item {
-            padding: 0.5rem 1rem;
-            background: var(--background);
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-        }
-
-        /* Contact Section */
-        #contact {
-            background: var(--surface);
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-content p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--background);
-            border-radius: 8px;
-        }
-
-        .contact-item i {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--surface);
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-
-        footer p {
-            color: var(--text-secondary);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            nav .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usama Ikram | AI Researcher</title>
+<meta name="description" content="Usama Ikram, MS candidate in Artificial Intelligence at DGIST. Machine learning, computer vision, multimodal and foundation models, efficient AI, and healthcare applications.">
+<style>
+  :root{
+    --ink:#16181d;
+    --body:#33373f;
+    --muted:#6b7280;
+    --rule:#e3e5e9;
+    --bg:#fdfdfc;
+    --panel:#f6f6f4;
+    --accent:#8a4b2a;
+    --link:#1b4f86;
+    --maxw:770px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--body);
+    font:16.5px/1.68 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--link);text-decoration:none;border-bottom:1px solid rgba(27,79,134,.28)}
+  a:hover{border-bottom-color:var(--link)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(253,253,252,.94);
+      backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--rule)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px;gap:18px}
+  nav .name{font-weight:600;color:var(--ink);border:0;font-size:15.5px;letter-spacing:.01em}
+  nav ul{display:flex;gap:17px;list-style:none;margin:0;padding:0;
+         font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13.5px}
+  nav ul a{color:var(--muted);border:0}
+  nav ul a:hover{color:var(--ink)}
+  @media(max-width:640px){nav ul{gap:12px;font-size:12.5px}nav .name{font-size:14px}}
+  @media(max-width:430px){nav ul li:nth-child(n+4){display:none}}
+
+  h1{font-size:30px;line-height:1.24;color:var(--ink);font-weight:600;margin:0 0 16px;letter-spacing:-.01em}
+  h2{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+     font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+     font-weight:600;margin:0 0 22px;padding-bottom:9px;border-bottom:1px solid var(--rule)}
+  h3{font-size:18.5px;color:var(--ink);font-weight:600;margin:0 0 6px;line-height:1.35}
+  p{margin:0 0 15px}
+  section{padding:52px 0}
+  .lede{font-size:17.5px}
+
+  header.hero{padding:64px 0 44px}
+  .kicker{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+          font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .hero-links{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+              font-size:14px;margin-top:24px;color:var(--muted)}
+  .hero-links a{margin-right:16px;display:inline-block}
+
+  .theme{margin-bottom:24px;padding-left:16px;border-left:2px solid var(--rule)}
+  .theme:last-child{margin-bottom:0}
+  .theme h3{font-size:16.5px;margin-bottom:4px}
+  .theme p{margin:0}
+
+  .paper{padding:24px 0;border-bottom:1px solid var(--rule)}
+  .paper:first-of-type{padding-top:0}
+  .paper:last-of-type{border-bottom:0;padding-bottom:0}
+  .venue{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+         font-size:13px;color:var(--muted);margin:0 0 11px}
+  .status{display:inline-block;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+          font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#8a5a00;
+          background:#fdf3e0;border:1px solid #f0dfc0;border-radius:3px;padding:1px 7px;margin-left:6px;
+          position:relative;top:-1px}
+  .status.ongoing{color:#2c5f4a;background:#e9f3ee;border-color:#cde3d8}
+  .authors{font-size:15px;color:var(--muted);margin:0 0 8px}
+  .authors b{color:var(--ink);font-weight:600}
+  .paper ul{margin:11px 0 0;padding-left:19px}
+  .paper li{margin-bottom:5px}
+  .caveat{font-size:14.5px;color:var(--muted);font-style:italic;margin-top:11px}
+  .links{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13.5px;margin-top:12px}
+  .links a{margin-right:14px}
+
+  .panel{background:var(--panel);border:1px solid var(--rule);border-radius:5px;padding:22px 24px}
+  .panel h3{margin-top:0}
+  .panel ul{padding-left:19px;margin:12px 0 0}
+  .panel li{margin-bottom:6px}
+
+  .proj{padding:16px 0;border-bottom:1px solid var(--rule)}
+  .proj:last-child{border-bottom:0}
+  .proj h3{font-size:16.5px;margin-bottom:3px}
+  .proj p{margin:0;font-size:15.5px}
+  .proj .links{margin-top:7px}
+
+  .job{display:flex;gap:20px;padding:14px 0;border-bottom:1px solid var(--rule)}
+  .job:last-child{border-bottom:0}
+  .job .when{flex:0 0 122px;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+             font-size:13px;color:var(--muted);padding-top:3px}
+  .job h3{font-size:16px;margin-bottom:2px}
+  .job .where{font-size:14.5px;color:var(--muted);margin:0 0 5px}
+  .job p{margin:0;font-size:15.5px}
+  @media(max-width:560px){.job{display:block}.job .when{margin-bottom:4px}}
+
+  .skills dt{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+             font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+  .skills dd{margin:3px 0 0;font-size:15.5px}
+  .skills dt:first-child{margin-top:0}
+
+  footer{border-top:1px solid var(--rule);padding:30px 0 44px;
+         font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+         font-size:13.5px;color:var(--muted)}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">UI</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Usama Ikram</h1>
-                <h2>Graduate Student | Researcher</h2>
-                <p>Specializing in Large Language Models, Computer Vision, and Robotics. Bridging deep learning, embedded AI, and robotic intelligence to create scalable, real-world autonomous systems.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Get In Touch
-                    </a>
-                    <a href="https://github.com/uikram" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i> View GitHub
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="profile-img">
-                        <img src="Profile Picture.jpg" alt="Usama Ikram">
-                    </div>
-                    <h3>Graduate Student and Researcher</h3>
-                    <p style="color: var(--text-secondary);">DGIST, South Korea</p>
-                    <div class="social-links">
-                        <a href="mailto:osama.ikram007@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://www.linkedin.com/in/usamaikram/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/uikram" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">Usama Ikram</a>
+    <ul>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#current">Current</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>AI Researcher & Graduate Student</h3>
-                    <p>Graduate student and researcher at DGIST, specializing in Multimodal AI, Computer Vision, and Robotics. My work focuses on developing autonomous systems that integrate perception, reasoning, and control.</p>
-                    <p>With over two years of applied AI research experience, my work spans defense-grade vision systems, real-time human-robot interaction, and medical image analysis. I am passionate about bridging Industry 4.0 and Healthcare 4.0—deploying lightweight, parameter-efficient AI (like LoRA) in both high-speed robotics and resource-constrained clinical settings.</p>
-                    <p>I hold a BS in Electrical Engineering from the National University of Sciences and Technology (NUST), where I developed a strong foundation in signal processing, control systems, and machine learning.</p>
-                </div>
-                <div class="research-interests">
-                    <h3>Research Interests</h3>
-                    <div class="interest-tags">
-                        <span class="tag">Large Language Models</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">Healthcare 4.0</span>
-                        <span class="tag">Medical Image Segmentation</span>
-                        <span class="tag">Parameter-Efficient Fine-Tuning (PEFT)</span>
-                        <span class="tag">Robotics</span>
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">Autonomous Systems</span>
-                        <span class="tag">Embedded AI</span>
-                        <span class="tag">Object Detection</span>
-                        <span class="tag">Multimodal Learning</span>
-                        <span class="tag">Neural Networks</span>
-                        <span class="tag">Sensor Fusion</span>
-                        <span class="tag">Prompt Engineering</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">MS Candidate in Artificial Intelligence · DGIST, South Korea</div>
+    <h1>Usama Ikram</h1>
+    <p class="lede">
+      I am a graduate researcher in artificial intelligence, working in machine learning and computer
+      vision with a growing focus on multimodal and foundation models. My research asks what happens
+      to large pretrained models when they leave the benchmark: how they can be adapted to
+      specialised domains at reasonable cost, and what determines whether the resulting systems are
+      dependable enough to be used for the purpose they were built for.
+    </p>
+    <p>
+      That question has taken me across several settings. I have studied whether vision-language
+      models can operate inside a real-time human-robot interaction loop, adapted lightweight vision
+      backbones to biomedical imaging where the usual training objectives quietly fail, and led a
+      systematic review that measured how much evidence actually stands behind a set of clinical
+      claims. Before starting my MS I spent two years as an AI research engineer, building models
+      that had to run on constrained hardware and on data that rarely behaved as documented. Much of
+      what I now find interesting came from that period.
+    </p>
+    <p>
+      I have three first-authored manuscripts under review. Looking ahead, I want to work further
+      into multimodal and foundation-model systems, efficient and deployable AI, and healthcare
+      applications, and to develop that work alongside people who have been doing it longer than I
+      have.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:usamaikram@dgist.ac.kr">usamaikram@dgist.ac.kr</a>
+      <a href="https://github.com/uikram">GitHub</a>
+      <a href="https://www.linkedin.com/in/usamaikram/">LinkedIn</a>
+    </div>
+  </div>
+</header>
 
-    <!-- Publications Section -->
-    <section id="publications" style="background: var(--background);">
-        <div class="container">
-            <h2 class="section-title">Publications & Preprints</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Delay-Aware Deployability of Multimodal Foundation Models for Real-Time Human-Robot Interaction</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Under Review: IEEE Transactions on Human-Machine Systems</h4>
-                        <p>A systematic evaluation of CLIP, LoRA-CLIP, and Frozen Prefix-LMs within a formal control-theoretic framework. Derived delay-dependent stability bounds using empirical step-response iteration, proving merged LoRA-CLIP achieves a safe worst-case latency of 17.92 ms for wearable robotics.</p>
-                    </div>
-                </div>
+<section id="interests">
+  <div class="wrap">
+    <h2>Research interests</h2>
+    <p>
+      Broadly, machine learning and computer vision, with particular interest in the areas below.
+      Some of these I have worked in directly; others are directions I want to develop into during a
+      PhD, and I have tried to keep that distinction visible.
+    </p>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Physics-Aware LoRA-Adapted Lightweight AI for Edge-Efficient Quantitative Holographic Cell Analysis</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Under Review: Applied Physics B</h4>
-                        <p>Introduced a novel Physics-Aware Phase Consistency Loss for holographic data. Demonstrated that LoRA acts as a crucial regularizer to prevent minority class collapse, enabling edge-efficient (228 FPS) cell segmentation and accurate dry mass quantification.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Determinants of glycaemic outcomes in children and adolescents with type 1 diabetes: a systematic review and evidence map</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Under Review: Diabetologia</h4>
-                        <p>A systematic literature review synthesizing 63 quantitative studies to identify determinants of glycemic control. Introduced the novel PEARL framework, mapping 47 variables across five domains to guide personalized, multidisciplinary pediatric diabetes care.</p>
-                    </div>
-                </div>
+    <div class="theme">
+      <h3>Multimodal and foundation models</h3>
+      <p>Vision-language models are where my hands-on experience sits, mainly on the adaptation and
+      deployment side. I would like to move further into multimodal systems that combine vision,
+      language and other modalities, and into how large generative models can support systems that
+      cannot tolerate their latency.</p>
+    </div>
+    <div class="theme">
+      <h3>Efficient and parameter-efficient learning</h3>
+      <p>Low-rank adaptation of pretrained backbones, distilled and lightweight architectures, and
+      the question of what a restricted adaptation subspace changes about what a model retains. In
+      one of my studies it preserved rare classes that full fine-tuning destroyed, in a setting where
+      it offered no compute advantage at all.</p>
+    </div>
+    <div class="theme">
+      <h3>Real-time and deployable AI</h3>
+      <p>What models cost to run, and what that cost implies for the systems around them. This
+      includes latency and energy characterisation, graph compilation and quantisation, embedded
+      inference, and treating operational requirements as part of the evaluation rather than an
+      afterthought.</p>
+    </div>
+    <div class="theme">
+      <h3>Healthcare AI and Healthcare 4.0</h3>
+      <p>Most of my applied work has been medical or biological. The constraints there are
+      distinctive: scarce labelled data, classes that are rare but clinically decisive, deployment
+      environments without reliable compute, and users who need to know how much confidence a
+      prediction carries.</p>
+    </div>
+    <div class="theme">
+      <h3>Computer vision and biomedical image analysis</h3>
+      <p>Segmentation, detection, and image analysis where the output feeds a downstream decision or
+      measurement rather than being the end product, including quantitative imaging and holographic
+      microscopy.</p>
+    </div>
+    <div class="theme">
+      <h3>Evaluation and research practice</h3>
+      <p>How confidently a reported result can be held. This came out of leading a systematic review,
+      and it has changed how I read quantitative claims, including my own.</p>
+    </div>
+  </div>
+</section>
 
-            </div>
-        </div>
-    </section>
+<section id="research">
+  <div class="wrap">
+    <h2>Research</h2>
+    <p style="color:var(--muted);font-size:15px">
+      All three manuscripts are first-authored and currently under peer review. None has been accepted
+      or published. Full versions are available on request.
+    </p>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Graduate Researcher</h3>
-                        <div class="company">Daegu Gyeongbuk Institute of Science and Technology (DGIST)</div>
-                        <div class="date">Sep 2025 - Present | Daegu, South Korea</div>
-                        <ul>
-                            <li>Researched and trained state-of-the-art Vision-Language Models (VLMs), focusing on improving cross-modal understanding and generalization.</li>
-                            <li>Implemented parameter-efficient fine-tuning (PEFT) techniques, including Low-Rank Adaptation (LoRA), to adapt large models for specific tasks with minimal computational overhead.</li>
-                            <li>Developed optimization strategies for vision systems to enhance inference speed and reduce latency on resource-constrained hardware.</li>
-                            <li>Conducted extensive experiments and benchmarking to evaluate model performance, analyzing trade-offs between accuracy, memory usage, and computational efficiency.</li>
-                            <li>Designed and evaluated Physics-Aware loss functions for Quantitative Phase Imaging (QPI), enabling biologically accurate holographic cell segmentation and optical mass conservation.</li>
-                            <li>Formulated formal mathematical deployability frameworks and derived delay-dependent stability bounds for multimodal foundation models in real-time human-robot interaction systems.</li>
-                        </ul>
-                    </div>
-                </div>
+    <article class="paper">
+      <h3>Delay-Aware Deployability of Multimodal Foundation Models for Real-Time Human-Robot
+        Interaction</h3>
+      <p class="authors"><b>Usama Ikram</b>, Youhyun Kim, Inkyu Moon</p>
+      <p class="venue">Submitted to IEEE Transactions on Human-Machine Systems
+        <span class="status">Under review</span></p>
+      <p>
+        Vision-language models are increasingly proposed as perception modules for embodied and
+        assistive systems, and are compared almost entirely on task accuracy. In a wearable
+        interaction setting that comparison is incomplete: the model's inference time enters the
+        control loop as a transport delay, and past some threshold the loop becomes unstable however
+        accurate the perception is. No accuracy benchmark locates that threshold, so this work
+        derives it. Modelling the loop as a PID-controlled mass-spring-damper plant with perception
+        delay, a first-order Padé approximation and the Routh-Hurwitz criterion give a stability
+        bound of 37.77 ms, against which three architectures were evaluated on worst-case rather than
+        mean latency.
+      </p>
+      <ul>
+        <li>LoRA adaptation of CLIP preserved representation quality (linear-probe average 85.69%
+          against 85.95% for the baseline) while improving zero-shot transfer on remote-sensing
+          imagery by 6.05%.</li>
+        <li>Merged LoRA-CLIP reached 17.92 ms worst-case latency, inside the nominal bound and inside
+          the tighter 18.76 ms bound that survives ±50% variation in biomechanical parameters.</li>
+        <li>A Frozen Prefix-LM reached 442.02 ms end to end, 11.7× over the bound, despite having the
+          fastest visual encoder of the three at 8.25 ms. The cost is autoregressive decoding rather
+          than perception, which is a statement about interface design more than model capability.</li>
+        <li>Software-in-the-loop simulation stayed bounded at 30 ms and diverged at 40 ms, only
+          2.23 ms past the analytical bound, so the margin is tight rather than conservative.</li>
+        <li>The resulting recommendation is architectural: parameter-efficient multimodal models
+          inside the high-rate perceptual loop, generative models in asynchronous supervisory roles.</li>
+      </ul>
+      <p class="caveat">
+        Latency and energy were measured on a desktop RTX A5000; the edge and battery-life figures in
+        the paper are labelled as projections. The Padé approximation makes the analytical bound
+        mildly optimistic, which is why the safety margins and the simulation check are included.
+      </p>
+      <p class="links"><a href="https://github.com/uikram/Delay_Aware_Deployability_Proof">Code</a></p>
+    </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>AI & ML Scientist</h3>
-                        <div class="company">National Aerospace Science & Technology Park</div>
-                        <div class="date">Jul 2025 - Sep 2025 | Rawalpindi, Pakistan</div>
-                        <ul>
-                            <li>Developed end-to-end vision pipelines using YOLO-based object detection and ROI segmentation for military-grade surveillance systems</li>
-                            <li>Implemented autoencoder architectures for secure representation learning across multimodal data</li>
-                            <li>Designed smart candidate evaluation framework using LLMs and prompt engineering</li>
-                            <li>Conducted experiments on RK3588 SoC-based embedded systems for edge AI applications</li>
-                        </ul>
-                    </div>
-                </div>
+    <article class="paper">
+      <h3>Physics-Aware LoRA-Adapted Lightweight AI for Edge-Efficient Quantitative Holographic
+        Cell Analysis</h3>
+      <p class="authors"><b>Usama Ikram</b>, Inkyu Moon</p>
+      <p class="venue">Submitted to Applied Physics B: Lasers and Optics
+        <span class="status">Under review</span></p>
+      <p>
+        Label-free microscopy supports direct biophysical measurement of individual cells, which makes
+        it attractive where staining is impractical. The learning problem is awkward in two ways: the
+        models worth deploying are pretrained on natural images and transfer poorly, and standard
+        segmentation losses compare pixel masks while the predicted boundary determines a downstream
+        physical measurement the objective never constrains. A conventionally trained model in our
+        ablation scored a competitive boundary F1 of 0.938 while misestimating the measured quantity
+        by 5.22%. This work adds three domain-specific terms to the objective and studies how
+        lightweight backbones should be adapted to the domain.
+      </p>
+      <ul>
+        <li>The full objective reduced measurement error from 5.22% to 3.04% on EdgeSAM and from
+          15.52% to 3.01% on MobileNet-UNet, with the best boundary fidelity of any configuration
+          tested.</li>
+        <li>The terms have to be composed in order rather than added independently: applied without a
+          geometric anchor, the contrast term collapsed boundary F1 to 0.386 and eliminated the rarest
+          class outright.</li>
+        <li>Full fine-tuning eliminated a diagnostically informative minority class in all three
+          backbones, while LoRA at rank 8 retained all four classes in both attention-based backbones.
+          Since latency and memory were flat across ranks, the low-rank constraint is acting as a
+          regulariser rather than a compute saving, which I think is the more interesting result.</li>
+        <li>Across 1,974 individually segmented cells in an 11-timepoint study, the framework
+          recovered the expected biological trajectory and agreed with annotator-derived measurements
+          at <em>r</em> = 0.966.</li>
+        <li>ONNX FP16 compilation brought the selected configuration to 4.33 ms median latency
+          (228 FPS) at 16.4 MB peak allocated memory.</li>
+      </ul>
+      <p class="caveat">
+        Efficiency figures are desktop RTX A5000 measurements; embedded deployment is motivated but
+        not demonstrated. Absolute values of the derived measurement are calibrated against a
+        population anchor because the archived data did not record its scale, so relative results are
+        scale-invariant and absolute ones are not.
+      </p>
+      <p class="links"><a href="https://github.com/uikram/Lightweight_QPI_Segmentation">Code</a></p>
+    </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>AI Research Engineer</h3>
-                        <div class="company">DeepChain</div>
-                        <div class="date">Jul 2023 - Mar 2025 | Islamabad, Pakistan</div>
-                        <ul>
-                            <li>Designed and trained deep learning models using CNNs, LSTMs, and Autoencoders</li>
-                            <li>Analyzed real-world data transmission issues from sensors to terminals</li>
-                            <li>Conducted statistical data analysis, EDA, and feature engineering</li>
-                            <li>Developed AI solutions for Supply Chain Automation use cases</li>
-                            <li>Generated business reports and ensured quality assurance</li>
-                        </ul>
-                    </div>
-                </div>
+    <article class="paper">
+      <h3>Determinants of Glycaemic Outcomes in Children and Adolescents with Type 1 Diabetes:
+        A Systematic Review and Evidence Map</h3>
+      <p class="authors"><b>Usama Ikram</b> (corresponding author), Abey Jose,
+        Francisca C. Eyzaguirre, Alejandro Mac Cawley</p>
+      <p class="venue">Submitted to Diabetologia · PROSPERO CRD420251045872
+        <span class="status">Under review</span></p>
+      <p>
+        Conducted with collaborators at Pontificia Universidad Católica de Chile and the University of
+        Limerick. Reviews in this area list determinants that have been shown to matter without
+        recording how many studies tested each, so a factor with twenty replications and one resting
+        on a single exploratory analysis carry equal weight. I led a review of 63 quantitative studies
+        drawn from 5,406 records across four databases, screened in duplicate and reported to
+        PRISMA 2020, and built the PEARL framework: 47 determinants across 12 sub-domains and five
+        domains, assigned under four stated rules, with a counted weight of evidence attached to every
+        category.
+      </p>
+      <ul>
+        <li>Evidence volume and consistency ran in opposite directions. The physiological domain holds
+          roughly half of the 297 factor-study associations but only 68% of them reach significance,
+          while all 26 associations in the psychological domain are significant.</li>
+        <li>A literature reporting no null result across 26 tests is unlikely to be the complete set
+          of analyses performed, and selective reporting is a more economical explanation than
+          uniformly larger effects.</li>
+        <li>Frequently cited determinants are not always well supported: sex reached significance in
+          9 of 23 studies, body mass index in 7 of 15.</li>
+      </ul>
+    </article>
+  </div>
+</section>
 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Jr. Frontend Web Developer (Intern)</h3>
-                        <div class="company">National Cyber Security Auditing and Evaluation Lab</div>
-                        <div class="date">Jul 2021 - Oct 2021 | Rawalpindi, Pakistan</div>
-                        <ul>
-                            <li>Designed websites using HTML and CSS</li>
-                            <li>Improved user experience and debugging</li>
-                            <li>Collaborated on site maintenance</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="current">
+  <div class="wrap">
+    <h2>Current work</h2>
+    <div class="panel">
+      <h3>End-to-end lightweight holographic analysis
+        <span class="status ongoing">Ongoing, no results yet</span></h3>
+      <p>
+        The conventional pipeline performs reconstruction, segmentation and measurement as separate
+        stages, each optimised for its own criterion, with the consequence that the reconstruction
+        stage is tuned to produce an image that looks correct rather than one that supports the
+        analysis performed on it. This project develops a single model that maps a raw hologram
+        directly to both a reconstructed image and a segmentation map, and derives per-cell
+        measurements from those two outputs.
+      </p>
+      <ul>
+        <li><strong>Central comparison.</strong> Two acquisition configurations, off-axis and in-line
+          Gabor holograms, evaluated across reconstruction accuracy, segmentation quality, morphology
+          classification, measurement accuracy and computational cost. In-line Gabor is considerably
+          simpler and cheaper to acquire but harder to invert, so establishing what it actually costs
+          downstream is the practical result worth having.</li>
+        <li><strong>Method.</strong> Extending my earlier objective from segmentation alone to a joint
+          criterion over reconstruction, segmentation and measurement consistency.</li>
+        <li><strong>My role.</strong> Architecture, loss design, dataset organisation and the
+          experimental protocol; hologram datasets are provided by a collaborator. Target for an
+          initial manuscript: September 2026.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>End-to-End Lightweight Holographic Analysis (Ongoing)</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Developing a unified, end-to-end framework to directly perform quantitative phase reconstruction and cell segmentation from raw holograms. This study compares raw off-axis vs. in-line Gabor holograms, leveraging an extended physics-aware loss framework to jointly optimize reconstruction and extract critical biological metrics (morphology, projected area, optical volume, and dry mass) while remaining highly efficient for edge deployment.</p>
-                        <h4>Technologies</h4>
-                        <p>Quantitative Phase Imaging (QPI), Deep Learning, Physics-Aware Loss, Holographic Reconstruction, Edge AI</p>
-                    </div>
-                </div>
+<section id="projects">
+  <div class="wrap">
+    <h2>Earlier projects</h2>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Physics-Aware QPI Segmentation of Red Blood Cells</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Developed an open-source codebase and evaluation framework for LoRA-based QPI segmentation. Included custom model training pipelines integrating a novel Physics-Aware Phase Consistency Loss to preserve quantitative volume accuracy, completely outperforming fully trained networks in resource-constrained environments.</p>
-                        <h4>Technologies</h4>
-                        <p>Computer Vision, PyTorch, LoRA, Medical Imaging, Healthcare 4.0</p>
-                        <a href="https://github.com/uikram/Lightweight_QPI_Segmentation" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--primary-color); text-decoration: none; font-weight: 600; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-                            <i class="fab fa-github"></i> View Repository
-                        </a>
-                    </div>
-                </div>
+    <div class="proj">
+      <h3>Explainable ensemble for knee osteoarthritis grading</h3>
+      <p>Automated Kellgren-Lawrence grading from OAI knee radiographs using a heterogeneous ensemble
+        of CNN backbones combined by a mixed voting rule, with Grad-CAM and LIME attribution used to
+        verify that predictions rested on joint space narrowing rather than on imaging artefacts.</p>
+      <p class="links"><a href="https://github.com/uikram/Knee_Osteoarthritis_Classification">Code</a></p>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Delay-Aware Deployability Proof</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Formal mathematical derivation of closed-loop stability bounds (37.77 ms) for LoRA-augmented foundation models in wearable robotics. Includes empirical step-response iteration for PID tuning to ensure safe real-time human-robot interaction.</p>
-                        <h4>Technologies</h4>
-                        <p>Control Theory, PID Tuning, LoRA, Wearable Robotics</p>
-                        <a href="https://github.com/uikram/Delay_Aware_Deployability_Proof" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--primary-color); text-decoration: none; font-weight: 600; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-                            <i class="fab fa-github"></i> View Repository
-                        </a>
-                    </div>
-                </div>
+    <div class="proj">
+      <h3>Early detection of Alzheimer's disease on embedded hardware</h3>
+      <p>CNN classification of ADNI imaging combined with ridge regression for physiological score
+        prediction and an SVM stage for identifying likely progression, deployed on a Jetson Nano to
+        assess whether the pipeline fits an embedded power budget.</p>
+      <p class="links"><a href="https://github.com/uikram/Early-Detection-of-Alzheimer-s-Disease">Code</a></p>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Knee Osteoarthritis Classification</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Designed a heterogeneous ensemble deep learning framework (8 CNN architectures) for automated Kellgren-Lawrence grading. Integrated a novel mix voting strategy and Explainable AI (Grad-CAM, LIME) to validate clinical relevance, achieving 76.93% accuracy.</p>
-                        <h4>Technologies</h4>
-                        <p>PyTorch, Ensemble Learning, CNNs, Explainable AI (XAI), Medical Imaging</p>
-                        <a href="https://github.com/uikram/Knee_Osteoarthritis_Classification" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--primary-color); text-decoration: none; font-weight: 600; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-                            <i class="fab fa-github"></i> View Repository
-                        </a>
-                    </div>
-                </div>
+    <div class="proj">
+      <h3>Predictive maintenance from industrial IoT sensor data</h3>
+      <p>Standardised accelerometer vibration readings across injection moulding machines and trained
+        a neural classifier to separate healthy from degrading operating states, so that maintenance
+        could be scheduled before failure rather than after it.</p>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Early Diagnosis of Alzheimer's Disease</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Developed deep learning system on Jetson Nano for early AD detection. Used CNNs for classification, ridge regression for predictions, and SVM for disease progression identification.</p>
-                        <h4>Technologies</h4>
-                        <p>CNN, Ridge Regression, SVM, Jetson Nano, Medical Imaging</p>
-                        <a href="https://github.com/uikram/Early-Detection-of-Alzheimer-s-Disease" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--primary-color); text-decoration: none; font-weight: 600; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-                            <i class="fab fa-github"></i> View Repository
-                        </a>
-                    </div>
-                </div>
+    <div class="proj">
+      <h3>Indoor machine positioning by trilateration</h3>
+      <p>Measured Bluetooth signal strength from IoT terminals on a plant floor and recovered machine
+        coordinates by trilateration, for equipment tracking in a supply chain deployment.</p>
+    </div>
+  </div>
+</section>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Automated Candidate Recruitment System</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Developed an LLM-based system to analyze and score candidate resumes using prompt engineering. Generated custom quizzes from CVs and automated red flag detection for efficient recruitment.</p>
-                        <h4>Technologies</h4>
-                        <p>Large Language Models, Prompt Engineering, Natural Language Processing</p>
-                    </div>
-                </div>
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience &amp; education</h2>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Smart Surveillance System</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Integrated AI algorithms with RK3588 chipsets for military-grade smart camera systems. Enabled real-time object detection and classification with on-device inference for secure environments.</p>
-                        <h4>Technologies</h4>
-                        <p>Embedded AI, RK3588, Object Detection</p>
-                    </div>
-                </div>
+    <div class="job">
+      <div class="when">Sep 2025 &ndash; present</div>
+      <div>
+        <h3>Graduate Researcher</h3>
+        <p class="where">Department of Artificial Intelligence, DGIST, Daegu</p>
+        <p>Deployability of multimodal foundation models in real-time interaction; parameter-efficient
+          adaptation of lightweight vision models for biomedical imaging; ongoing work on end-to-end
+          holographic analysis.</p>
+      </div>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>IoT-Driven Predictive Maintenance</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Analyzed accelerometer sensor data to predict molding machine failures. Developed neural network-based classification system to enable proactive maintenance and reduce production delays.</p>
-                        <h4>Technologies</h4>
-                        <p>IoT, Neural Networks, Sensor Data Analysis, Predictive Analytics</p>
-                    </div>
-                </div>
+    <div class="job">
+      <div class="when">Jul &ndash; Sep 2025</div>
+      <div>
+        <h3>AI &amp; ML Scientist</h3>
+        <p class="where">National Aerospace Science &amp; Technology Park, Rawalpindi</p>
+        <p>Detection and segmentation pipelines for surveillance imagery, deployed on RK3588 SoC
+          hardware; autoencoder benchmarking for multimodal representation learning; an LLM-based
+          candidate screening system.</p>
+      </div>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Autoencoder-Based Anomaly Detection</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Designed autoencoder for detecting anomalies in time series data. The system learns normal patterns and identifies anomalies through reconstruction error analysis.</p>
-                        <h4>Technologies</h4>
-                        <p>Autoencoders, Time Series Analysis, Deep Learning</p>
-                    </div>
-                </div>
+    <div class="job">
+      <div class="when">Jul 2023 &ndash; Mar 2025</div>
+      <div>
+        <h3>AI Research Engineer</h3>
+        <p class="where">DeepChain, Islamabad</p>
+        <p>Convolutional, recurrent and autoencoder models for supply chain automation and industrial
+          monitoring. Diagnosed data loss between field sensors and collection terminals and rebuilt
+          the ingestion pipeline, so that models were trained on the signal the sensors produced
+          rather than on gap-filled records.</p>
+      </div>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Machine Positioning System</h3>
-                    </div>
-                    <div class="project-body">
-                        <h4>Problem & Solution</h4>
-                        <p>Applied trilateration method using Bluetooth signal strength from IoT devices to pinpoint machine locations in manufacturing plants, enhancing supply chain efficiency.</p>
-                        <h4>Technologies</h4>
-                        <p>IoT, Trilateration, Bluetooth, Signal Processing</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="job">
+      <div class="when">2019 &ndash; 2023</div>
+      <div>
+        <h3>BS in Electrical Engineering</h3>
+        <p class="where">National University of Sciences and Technology (NUST), Islamabad</p>
+        <p>Signal processing, control systems and machine learning.</p>
+      </div>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Deep Learning</span>
-                        <span class="skill-item">Machine Learning</span>
-                        <span class="skill-item">Computer Vision</span>
-                        <span class="skill-item">LLMs</span>
-                        <span class="skill-item">Generative AI</span>
-                        <span class="skill-item">CNNs</span>
-                        <span class="skill-item">RNNs</span>
-                        <span class="skill-item">LSTM</span>
-                        <span class="skill-item">Autoencoders</span>
-                    </div>
-                </div>
+    <h2 style="margin-top:44px">Technical skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt>
+      <dd>Python, C++, MATLAB, SQL, LaTeX, HTML/CSS</dd>
+      <dt>Machine learning</dt>
+      <dd>PyTorch, TensorFlow, Hugging Face, PEFT/LoRA, ONNX Runtime, mixed-precision training,
+        CNNs, transformers, autoencoders, recurrent models</dd>
+      <dt>Vision &amp; multimodal</dt>
+      <dd>Vision-language models (CLIP, prefix-tuned LMs), semantic and instance segmentation, object
+        detection, biomedical and holographic image analysis, OpenCV</dd>
+      <dt>Deployment</dt>
+      <dd>Latency, memory and energy profiling, graph compilation and quantisation, embedded
+        inference (RK3588, Jetson Nano), Docker, Git, Flask</dd>
+      <dt>Analysis</dt>
+      <dd>Control-theoretic stability analysis, domain-constrained loss design, statistical analysis,
+        systematic review methodology (PRISMA 2020, MMAT)</dd>
+    </dl>
+  </div>
+</section>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">C++</span>
-                        <span class="skill-item">SQL</span>
-                        <span class="skill-item">MySQL</span>
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">LaTeX</span>
-                    </div>
-                </div>
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>
+      I am applying for PhD positions in machine learning and artificial intelligence, with particular
+      interest in multimodal and foundation models, efficient and deployable AI, and healthcare
+      applications. If your group works in any of these areas I would be glad to hear from you, and
+      happy to send the manuscripts, which are not yet public while they are under review.
+    </p>
+    <p>
+      <a href="mailto:usamaikram@dgist.ac.kr">usamaikram@dgist.ac.kr</a> ·
+      <a href="mailto:osama.ikram007@gmail.com">osama.ikram007@gmail.com</a><br>
+      <a href="https://github.com/uikram">github.com/uikram</a> ·
+      <a href="https://www.linkedin.com/in/usamaikram/">linkedin.com/in/usamaikram</a><br>
+      Daegu, South Korea
+    </p>
+  </div>
+</section>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Frameworks & Libraries</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">TensorFlow</span>
-                        <span class="skill-item">PyTorch</span>
-                        <span class="skill-item">Scikit-Learn</span>
-                        <span class="skill-item">OpenCV</span>
-                        <span class="skill-item">Pandas</span>
-                        <span class="skill-item">NumPy</span>
-                        <span class="skill-item">Matplotlib</span>
-                        <span class="skill-item">Flask</span>
-                        <span class="skill-item">Docker</span>
-                    </div>
-                </div>
+<footer>
+  <div class="wrap">
+    Usama Ikram · Last updated August 2026. Manuscript status on this page is kept current; all three
+    are under review and none has been accepted.
+  </div>
+</footer>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> Data & Analysis</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Data Science</span>
-                        <span class="skill-item">Statistical Analysis</span>
-                        <span class="skill-item">EDA</span>
-                        <span class="skill-item">Feature Engineering</span>
-                        <span class="skill-item">Signal Processing</span>
-                        <span class="skill-item">MATLAB</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p>I'm always interested in discussing research collaborations, job opportunities, or innovative AI projects. Feel free to reach out!</p>
-                <div class="hero-buttons" style="justify-content: center;">
-                    <a href="mailto:osama.ikram007@gmail.com" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Email Me
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>osama.ikram007@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Daegu, South Korea</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Usama Ikram. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.style.padding = '0.5rem 0';
-            } else {
-                nav.style.padding = '1rem 0';
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all project cards and timeline items
-        document.querySelectorAll('.project-card, .timeline-item, .skill-category').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
