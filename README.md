@@ -140,4 +140,4 @@ Location: Daegu, South Korea 🇰🇷
 
 Email: usamaikram@dgist.ac.kr | osama.ikram007@gmail.com
 
-Website: uikram.github.io
+Website: u[ikram.github.io](https://uikram.github.io/usamaikram.github.io/) | https://www.linkedin.com/in/usamaikram/
