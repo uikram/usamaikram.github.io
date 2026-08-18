@@ -68,13 +68,37 @@ Conducted on-site data collection to secure reliably labeled ground truth while 
 
 🎯 Selected Earlier Projects
 
-Automated Knee Osteoarthritis Grading: Implemented Kellgren-Lawrence grading from OAI radiographs using a heterogeneous CNN ensemble and mixed voting rules, verified with Grad-CAM and LIME attribution
+🩺 Automated Knee Osteoarthritis Grading
 
-Early Diagnosis of Alzheimer's Disease: Developed a CNN and ridge regression system deployed on a Jetson Nano for medical imaging classification and physiological score prediction
+Explainable ensemble for Kellgren-Lawrence grading from OAI radiographs
 
-IoT-Driven Predictive Maintenance: Trained neural classifiers on standardized accelerometer vibration readings across injection molding machines to detect operational degradation
+Tech Stack: CNN Ensembles, Grad-CAM, LIME
 
-Machine Positioning System: Designed an indoor equipment tracking system utilizing trilateration from deployed Bluetooth IoT terminals
+Impact: Verified predictions rested on joint space narrowing rather than imaging artifacts
+
+🧠 Early Diagnosis of Alzheimer's Disease
+
+Embedded medical imaging classification and physiological score prediction
+
+Tech Stack: CNN, Ridge Regression, SVM, Jetson Nano
+
+Impact: Assessed pipeline feasibility within an embedded power budget
+
+🏭 IoT-Driven Predictive Maintenance
+
+Neural classifier for standard accelerometer vibration readings
+
+Tech Stack: Neural Networks, Time Series Analysis, IoT
+
+Impact: Enabled maintenance scheduling before failure on injection molding machines
+
+📍 Machine Positioning System
+
+Indoor equipment tracking via trilateration
+
+Tech Stack: Bluetooth IoT terminals, Signal Processing
+
+Impact: Recovered machine coordinates for plant floor equipment tracking
 
 🛠️ Technical Arsenal
 
@@ -102,14 +126,18 @@ National University of Sciences and Technology (NUST)
 
 📫 Get In Touch
 
-I'm always interested in discussing research collaborations, job opportunities, and innovative AI projects.
+I'm always interested in discussing:
+
+🔬 Research collaborations
+
+💼 Job opportunities
+
+🚀 Innovative AI projects
+
+🤝 Open source contributions
 
 Location: Daegu, South Korea 🇰🇷
 
 Email: usamaikram@dgist.ac.kr | osama.ikram007@gmail.com
 
 Website: uikram.github.io
-
-Let's Connect!
-
-⭐️ From uikram
