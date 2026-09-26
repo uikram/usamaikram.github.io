@@ -1,143 +1,119 @@
-👋 Hi, I'm Usama Ikram
+# Usama Ikram
 
-Graduate Student | AI Researcher | Multimodal Foundation Models Enthusiast
+**MS Candidate in Artificial Intelligence, DGIST (Daegu, Republic of Korea)**
 
-Specializing in Multimodal Foundation Models, Computer Vision, and Parameter-Efficient Adaptation
+[uikram.github.io](https://uikram.github.io/usamaikram.github.io) ·
+[usamaikram@dgist.ac.kr](mailto:usamaikram@dgist.ac.kr) ·
+[LinkedIn](https://www.linkedin.com/in/usamaikram/)
 
-🚀 About Me
+---
 
-I'm an MS Candidate in Artificial Intelligence and Graduate Researcher at the Daegu Gyeongbuk Institute of Science and Technology (DGIST) in Daegu, South Korea. My research focuses on the adaptation of large pretrained vision and vision-language models to domains where computation, latency, and labeled data are limited. I aim to evaluate these systems against practical application requirements rather than benchmark accuracy alone.
+I am a graduate researcher in artificial intelligence, working in machine learning and computer
+vision with a growing focus on multimodal and foundation models. My research asks what happens to
+pretrained models when they leave the benchmark: how they can be adapted to specialised domains at
+reasonable cost, and whether the resulting systems are dependable for the purpose they were built for.
 
-With three years of applied AI experience, I have transitioned from building models for industrial deployments to addressing real-world deployment settings as part of the core research problem. My recent work spans:
+That has meant deriving a latency bound for a vision-language model inside a real-time human-robot
+interaction loop, adapting lightweight vision backbones to holographic cell imaging, building a network
+that measures cells directly from a raw hologram, and leading a systematic review that counted how much
+evidence stands behind a set of clinical claims. Before my MS I spent two years as an AI research
+engineer, building models for constrained hardware and imperfect data.
 
-🤖 Real-time human-robot interaction loops utilizing delay-aware multimodal foundation models
+I am applying for PhD positions starting in the second half of 2027, in multimodal and foundation
+models, efficient and deployable AI, and healthcare applications.
 
-🔬 Edge-efficient lightweight AI for quantitative holographic cell analysis using LoRA
+---
 
-🏭 Industrial supply chain automation and secure representation learning using autoencoder architectures
+## Research
 
-🔬 Research Interests
+Manuscripts 1 to 3 are first-authored and **under peer review**; none has been accepted or published.
+Manuscript 4 is a complete draft **in preparation**. Full texts of all four are available on request.
 
-research_areas = {
-    "Foundation Models": ["Vision-Language Models", "Multimodal Systems", "CLIP", "Generative AI"],
-    "Efficient Adaptation": ["PEFT / LoRA", "Mixed-Precision Training", "ONNX Graph Compilation"],
-    "Computer Vision": ["Semantic & Instance Segmentation", "Biomedical & Holographic Imaging", "Object Detection"],
-    "Edge AI": ["Real-Time Processing", "Embedded Inference (RK3588, Jetson Nano)", "Latency & Energy Profiling"]
-}
+### 1. Delay-Aware Deployability of Multimodal Foundation Models for Real-Time Human-Robot Interaction
 
+*Usama Ikram, Youhyun Kim, Inkyu Moon* · submitted to *IEEE Transactions on Human-Machine Systems*
+→ [`Delay_Aware_Deployability_Proof`](https://github.com/uikram/Delay_Aware_Deployability_Proof)
 
-💼 Experience Highlights
+A model's inference time is a transport delay inside a wearable control loop, and past some threshold
+the loop becomes unstable however accurate the perception is. A first-order Padé approximation and the
+Routh-Hurwitz criterion give that threshold, 37.77 ms, for a PID-controlled mass-spring-damper plant.
 
-🎓 Graduate Researcher @ DGIST
+* LoRA-adapted CLIP (0.65% of parameters trained) kept linear-probe quality at 85.69% against 85.95%,
+  while zero-shot transfer rose 6.05% on remote-sensing imagery and fell 4.37% on object-centric data.
+* Merged LoRA-CLIP reached 17.92 ms worst-case latency, inside the bound and inside the 18.76 ms bound
+  that survives ±50% biomechanical variation; unmerged adapters added 8.5 ms.
+* A Frozen Prefix-LM reached 442.02 ms, 11.7× over the bound, although its visual encoder took 8.25 ms.
 
-Sep 2025 - Present | Daegu, South Korea
+*Measured on a desktop RTX A5000; edge figures are projections; validated in software-in-the-loop
+simulation, not on a physical robot.*
 
-Formulated a control-theoretic deployability criterion for multimodal foundation models within real-time interaction loops to establish perception delay stability bounds
+### 2. Physics-Aware Lightweight Segmentation for Quantitative Holographic Cell Analysis with Optical Mass Preservation
 
-Adapted lightweight vision backbones (e.g., LoRA-adapted CLIP) for biomedical imaging where conventional pixel-overlap training objectives fail
+*Usama Ikram, Youhyun Kim, Inkyu Moon* · submitted to *Applied Physics B: Lasers and Optics*
+→ [`Lightweight_QPI_Segmentation`](https://github.com/uikram/Lightweight_QPI_Segmentation)
 
-Developed a unified model mapping raw holograms directly to phase images and segmentation maps for end-to-end lightweight holographic analysis
+A cell's dry mass is its quantitative phase integrated over the segmented region, so the boundary is the
+domain of a measurement. A Physics-Aware Phase Consistency Loss (phase-mask contrast, boundary-gradient
+alignment, integrated-phase preservation) with LoRA-adapted EdgeSAM, MobileSAM and MobileNet-UNet:
 
-🛡️ AI & ML Scientist @ National Aerospace Science & Technology Park (NASTP)
+* Integrated-phase error fell from 5.22% to 3.04% (EdgeSAM) and 15.52% to 3.01% (MobileNet-UNet),
+  with boundary F1 rising to 0.953 and 0.970; contrast alone collapsed boundary F1 to 0.386.
+* Full fine-tuning drove one minority class to zero Dice in all three backbones; LoRA at rank 8 kept
+  all four classes in both attention-based backbones.
+* On 1,974 cells over a 47-day storage study, dry mass from predicted masks matched annotation-derived
+  values at r = 0.966; ONNX FP16 inference took 4.33 ms at 16.4 MB.
 
-Jul 2025 - Sep 2025 | Rawalpindi, Pakistan
+*Desktop-GPU measurements; embedded deployment not demonstrated; no independent held-out cohort.*
 
-Developed object detection and region-of-interest segmentation pipelines for surveillance imagery
+### 3. Determinants of Glycaemic Outcomes in Children and Adolescents with Type 1 Diabetes: A Systematic Review and Evidence Map
 
-Deployed inference models on RK3588 SoC hardware to establish the practical cost of on-device inference for low-power prototypes
+*Usama Ikram (corresponding author), Abey Jose, Francisca C. Eyzaguirre, Alejandro Mac Cawley* ·
+submitted to *Pediatric Diabetes* · PROSPERO CRD420251045872
 
-Designed an LLM-based candidate screening system that generated technical assessments and flagged inconsistencies in employment history
+63 studies from 5,406 records, screened independently by two reviewers and reported to PRISMA 2020,
+organised into the PEARL framework: 47 determinants across five domains under four stated rules, each
+with a counted weight of evidence. 68% of the 148 physiological associations reached significance
+against all 26 in the psychological domain, which selective reporting explains more economically than
+larger effects.
 
-🔍 AI Research Engineer @ DeepChain
+### 4. Measurement-Oriented End-to-End Holographic Quantitative Phase Analysis: Joint Reconstruction, Segmentation and Per-Cell Measurement from a Single Raw Hologram
 
-Jul 2023 - Mar 2025 | Islamabad, Pakistan
+*Usama Ikram, Inkyu Moon* · in preparation
+→ [`End-to-End-Lightweight-Holographic-Reconstruction-and-Quantitative-Cell-Analysis`](https://github.com/uikram/End-to-End-Lightweight-Holographic-Reconstruction-and-Quantitative-Cell-Analysis) (code)
 
-Built and trained convolutional, recurrent, and autoencoder models for supply chain automation and industrial monitoring
+One network (shared MobileNetV2 encoder, two U-Net decoders, 9.6M parameters) maps a raw hologram
+directly to phase, segmentation and per-cell dry mass, evaluated on 800 fields of three cancer cell
+lines in off-axis and in-line Gabor geometry, with three seeds and a two-SD resolution criterion.
 
-Diagnosed field sensor data loss and rebuilt the data ingestion pipeline so models were trained on physical measurements rather than gap-filled records
+* Off-axis, per-cell dry-mass error fell from 22.45% (classical pipeline) to 17.63%, and boundary F1
+  rose from 0.246 to 0.457.
+* A per-cell integrated-phase loss did **not** help: it raised dry-mass error beyond seed noise at every
+  weight tried, which I attribute (untested) to labels derived from the reconstruction target.
+* Model-free error budget: a one-pixel boundary shift costs 4.8% of dry mass at Dice 0.974.
 
-Conducted on-site data collection to secure reliably labeled ground truth while leading exploratory analysis and feature engineering
+*Detection recall (0.592) is the main weakness; LoRA implemented but not trained; workstation-GPU timings.*
 
-📝 Manuscripts Under Review
+---
 
-"Delay-Aware Deployability of Multimodal Foundation Models for Real-Time Human-Robot Interaction" — Submitted to IEEE Transactions on Human-Machine Systems
+## Earlier projects
 
-"Physics-Aware LoRA-Adapted Lightweight AI for Edge-Efficient Quantitative Holographic Cell Analysis" — Submitted to Applied Physics B: Lasers and Optics
+| Project | Description |
+|---|---|
+| [Knee osteoarthritis grading](https://github.com/uikram/Knee_Osteoarthritis_Classification) | Kellgren-Lawrence grading from OAI radiographs with a heterogeneous CNN ensemble; Grad-CAM and LIME used to check reliance on joint space narrowing |
+| [Alzheimer's early detection](https://github.com/uikram/Early-Detection-of-Alzheimer-s-Disease) | Undergraduate thesis: CNN classification of ADNI imaging with ridge regression and an SVM progression stage, deployed on a Jetson Nano |
+| Automated candidate recruitment | LLM-based resume scoring with quizzes generated from each CV and red-flag detection |
+| Smart surveillance | Lightweight detection and classification on RK3588 chipsets for on-device smart cameras |
+| Predictive maintenance | Vibration-based classification of injection moulding machine states |
+| Anomaly detection | Autoencoder that flags anomalies in time series through reconstruction error |
+| Machine positioning | Bluetooth signal strength and trilateration to locate machines on a plant floor |
 
-"Determinants of Glycaemic Outcomes in Children and Adolescents with Type 1 Diabetes: A Systematic Review and Evidence Map" — Submitted to Pediatric Diabetes
+---
 
-🎯 Selected Earlier Projects
+## Tools
 
-🩺 Automated Knee Osteoarthritis Grading
+Python · PyTorch · TensorFlow · Hugging Face · PEFT/LoRA · ONNX Runtime · OpenCV · C++ · CUDA · MATLAB ·
+Docker · Git · embedded inference on RK3588 and Jetson Nano
 
-Explainable ensemble for Kellgren-Lawrence grading from OAI radiographs
+---
 
-Tech Stack: CNN Ensembles, Grad-CAM, LIME
-
-Impact: Verified predictions rested on joint space narrowing rather than imaging artifacts
-
-🧠 Early Diagnosis of Alzheimer's Disease
-
-Embedded medical imaging classification and physiological score prediction
-
-Tech Stack: CNN, Ridge Regression, SVM, Jetson Nano
-
-Impact: Assessed pipeline feasibility within an embedded power budget
-
-🏭 IoT-Driven Predictive Maintenance
-
-Neural classifier for standard accelerometer vibration readings
-
-Tech Stack: Neural Networks, Time Series Analysis, IoT
-
-Impact: Enabled maintenance scheduling before failure on injection molding machines
-
-📍 Machine Positioning System
-
-Indoor equipment tracking via trilateration
-
-Tech Stack: Bluetooth IoT terminals, Signal Processing
-
-Impact: Recovered machine coordinates for plant floor equipment tracking
-
-🛠️ Technical Arsenal
-
-Languages & Tools
-
-AI/ML Frameworks
-
-Deployment & Methods
-
-📊 GitHub Stats
-
-🎓 Education
-
-MS in Artificial Intelligence
-
-Daegu Gyeongbuk Institute of Science and Technology (DGIST)
-
-📍 Daegu, South Korea | 🗓️ Sep 2025 - Expected Jun 2027
-
-BS in Electrical Engineering
-
-National University of Sciences and Technology (NUST)
-
-📍 Islamabad, Pakistan | 🗓️ 2019 - 2023
-
-📫 Get In Touch
-
-I'm always interested in discussing:
-
-🔬 Research collaborations
-
-💼 Job opportunities
-
-🚀 Innovative AI projects
-
-🤝 Open source contributions
-
-Location: Daegu, South Korea 🇰🇷
-
-Email: usamaikram@dgist.ac.kr | osama.ikram007@gmail.com
-
-Website: u[ikram.github.io](https://uikram.github.io/usamaikram.github.io/) | https://www.linkedin.com/in/usamaikram/
+*Last updated September 2026.*
