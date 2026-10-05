@@ -4,131 +4,140 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Usama Ikram | AI Researcher</title>
-<meta name="description" content="Usama Ikram, MS candidate in Artificial Intelligence at Daegu Gyeongbuk Institute of Science and Technology (DGIST). Machine learning, computer vision, multimodal and foundation models, efficient AI, and healthcare applications.">
+<meta name="description" content="Usama Ikram, MS candidate in Artificial Intelligence at DGIST. Computer vision, vision-language models, LoRA adaptation, and multimodal AI for healthcare and biomedical imaging.">
 <style>
   :root{
-    --ink:#16181d;
-    --body:#33373f;
-    --muted:#6b7280;
-    --rule:#e3e5e9;
-    --bg:#fdfdfc;
-    --panel:#f6f6f4;
-    --accent:#8a4b2a;
-    --link:#1b4f86;
-    --linkline:rgba(27,79,134,.28);
-    --navbg:rgba(253,253,252,.94);
+    --ink:#15181e;
+    --body:#343841;
+    --muted:#6a707b;
+    --rule:#e2e5ea;
+    --bg:#fcfcfb;
+    --panel:#f4f5f3;
+    --card:#ffffff;
+    --accent:#163a66;
+    --accent-soft:#e8eef6;
+    --link:#1a4f8c;
+    --linkline:rgba(26,79,140,.28);
+    --navbg:rgba(252,252,251,.94);
     --tag-ink:#8a5a00;--tag-bg:#fdf3e0;--tag-line:#f0dfc0;
-    --tag2-ink:#2c5f4a;--tag2-bg:#e9f3ee;--tag2-line:#cde3d8;
-    --maxw:780px;
+    --maxw:820px;
+    --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --ink:#eceae6;--body:#cfccc6;--muted:#9a978f;--rule:#2d2f33;--bg:#141517;--panel:#1b1c1f;
-      --accent:#d59a73;--link:#8cb8e6;--linkline:rgba(140,184,230,.35);--navbg:rgba(20,21,23,.92);
+      --ink:#eceae6;--body:#cfccc6;--muted:#9a978f;--rule:#2c2f34;--bg:#131416;--panel:#1a1b1e;--card:#18191c;
+      --accent:#9cc1ec;--accent-soft:#1c2633;--link:#8fbbe8;--linkline:rgba(143,187,232,.35);--navbg:rgba(19,20,22,.92);
       --tag-ink:#e8c07a;--tag-bg:#2b2416;--tag-line:#4a3d22;
-      --tag2-ink:#8fd0b0;--tag2-bg:#16261f;--tag2-line:#274437;
     }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    margin:0;background:var(--bg);color:var(--body);
-    font:16.5px/1.68 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{margin:0;background:var(--bg);color:var(--body);font:16.5px/1.66 var(--serif);-webkit-font-smoothing:antialiased}
   a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--linkline)}
   a:hover{border-bottom-color:var(--link)}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-  .sans{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .sans{font-family:var(--sans)}
 
-  nav{position:sticky;top:0;z-index:20;background:var(--navbg);
-      backdrop-filter:saturate(180%) blur(8px);-webkit-backdrop-filter:saturate(180%) blur(8px);
-      border-bottom:1px solid var(--rule)}
+  nav{position:sticky;top:0;z-index:20;background:var(--navbg);backdrop-filter:saturate(180%) blur(8px);
+      -webkit-backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--rule)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px}
-  nav .name{font-weight:600;color:var(--ink);border:0;font-size:15.5px;letter-spacing:.01em;white-space:nowrap}
-  nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;
-         font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13.5px}
+  nav .name{font-weight:600;color:var(--ink);border:0;font-size:15.5px;white-space:nowrap}
+  nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:13.5px}
   nav ul a{color:var(--muted);border:0}
   nav ul a:hover{color:var(--ink)}
-  @media(max-width:640px){nav ul{gap:11px;font-size:12.5px}nav .name{font-size:14px}}
-  @media(max-width:470px){nav ul li.opt{display:none}}
+  @media(max-width:660px){nav ul{gap:11px;font-size:12.5px}nav .name{font-size:14px}}
+  @media(max-width:500px){nav ul li.opt{display:none}}
+  @media(max-width:430px){nav ul{gap:9px;font-size:12px}nav .name{font-size:13.5px}nav .wrap{padding:0 14px;gap:10px}}
 
-  h1{font-size:31px;line-height:1.22;color:var(--ink);font-weight:600;margin:0 0 14px;letter-spacing:-.01em}
-  h2{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-     font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
-     font-weight:600;margin:0 0 22px;padding-bottom:9px;border-bottom:1px solid var(--rule)}
-  h3{font-size:18.5px;color:var(--ink);font-weight:600;margin:0 0 6px;line-height:1.35}
-  p{margin:0 0 15px}
-  section{padding:50px 0}
+  h1{font-size:32px;line-height:1.2;color:var(--ink);font-weight:600;margin:0 0 12px;letter-spacing:-.01em}
+  h2{font-family:var(--sans);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+     font-weight:650;margin:0 0 22px;padding-bottom:9px;border-bottom:1px solid var(--rule)}
+  h3{font-size:18px;color:var(--ink);font-weight:600;margin:0 0 6px;line-height:1.35}
+  p{margin:0 0 14px}
+  section{padding:46px 0}
   .lede{font-size:17.5px}
 
-  header.hero{padding:58px 0 40px}
-  .hero-grid{display:grid;grid-template-columns:1fr 150px;gap:34px;align-items:start}
-  .portrait{width:150px;height:182px;object-fit:cover;border-radius:6px;border:1px solid var(--rule);
-            display:block;margin-top:6px}
-  @media(max-width:620px){.hero-grid{grid-template-columns:1fr}.portrait{width:112px;height:136px;order:-1;margin:0 0 4px}}
-  .kicker{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-          font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-  .hero-links{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-              font-size:14px;margin-top:22px;color:var(--muted)}
-  .hero-links a{margin-right:16px;display:inline-block;margin-bottom:6px}
+  /* hero */
+  header.hero{padding:54px 0 34px}
+  .hero-grid{display:grid;grid-template-columns:1fr 148px;gap:34px;align-items:start}
+  .portrait{width:148px;height:180px;object-fit:cover;border-radius:6px;border:1px solid var(--rule);display:block;margin-top:6px}
+  @media(max-width:640px){.hero-grid{grid-template-columns:1fr}.portrait{width:110px;height:134px;order:-1;margin:0 0 4px}}
+  .kicker{font-family:var(--sans);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .actions{font-family:var(--sans);font-size:14px;margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+  .btn{display:inline-block;border:1px solid var(--rule);border-radius:5px;padding:6px 12px;color:var(--ink);background:var(--card)}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  .btn.primary:hover{opacity:.9}
 
-  .theme{margin-bottom:22px;padding-left:16px;border-left:2px solid var(--rule)}
-  .theme:last-child{margin-bottom:0}
-  .theme h3{font-size:16.5px;margin-bottom:4px}
-  .theme p{margin:0}
+  .glance{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);
+          border-radius:6px;overflow:hidden;margin-top:26px}
+  .glance > div{background:var(--panel);padding:12px 15px}
+  .glance .k{font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .glance .v{font-size:15.5px;color:var(--ink);line-height:1.45;margin-top:2px}
+  @media(max-width:560px){.glance{grid-template-columns:1fr}}
 
-  .paper{padding:26px 0;border-bottom:1px solid var(--rule)}
-  .paper:first-of-type{padding-top:0}
-  .paper:last-of-type{border-bottom:0;padding-bottom:0}
-  .venue{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-         font-size:13px;color:var(--muted);margin:0 0 11px}
-  .status{display:inline-block;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-          font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--tag-ink);
-          background:var(--tag-bg);border:1px solid var(--tag-line);border-radius:3px;padding:1px 7px;margin-left:6px;
-          position:relative;top:-1px;white-space:nowrap}
-  .status.prep{color:var(--tag2-ink);background:var(--tag2-bg);border-color:var(--tag2-line)}
-  .authors{font-size:15px;color:var(--muted);margin:0 0 8px}
-  .authors b{color:var(--ink);font-weight:600}
-  .paper ul{margin:11px 0 0;padding-left:19px}
-  .paper li{margin-bottom:6px}
-  .caveat{font-size:14.5px;color:var(--muted);font-style:italic;margin-top:12px}
-  .links{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13.5px;margin-top:12px}
-  .links a{margin-right:14px}
+  /* manuscript overview */
+  .mgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:640px){.mgrid{grid-template-columns:1fr}}
+  a.mtile{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--rule);
+          border-radius:7px;padding:16px 18px 15px;color:var(--body);transition:border-color .15s,transform .15s}
+  a.mtile:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .mtile .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .mtile .num-id{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.02em}
+  .mtile .area{font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .mtile h3{font-size:16.5px;margin:2px 0 4px;color:var(--ink)}
+  .mtile .stat{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule)}
+  .mtile .stat .v{font-family:var(--sans);font-size:19px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+  .mtile .stat .l{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.4}
+  .overview-note{margin-top:18px;font-size:15.5px}
+
+  /* manuscripts */
   .note{color:var(--muted);font-size:15px}
+  .paper{padding:24px 0;border-bottom:1px solid var(--rule)}
+  .paper:last-of-type{border-bottom:0;padding-bottom:0}
+  .paper .tagrow{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:0 0 6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .mid{font-weight:650;color:var(--accent)}
+  .status{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--tag-ink);
+          background:var(--tag-bg);border:1px solid var(--tag-line);border-radius:3px;padding:1px 7px;white-space:nowrap}
+  .authors{font-size:15px;color:var(--muted);margin:0 0 10px}
+  .authors b{color:var(--ink);font-weight:600}
+  .paper ul{margin:8px 0 0;padding-left:19px}
+  .paper li{margin-bottom:5px;font-size:15.5px}
+  details{margin-top:10px;font-size:14.5px;color:var(--muted)}
+  summary{cursor:pointer;font-family:var(--sans);font-size:13px;color:var(--muted)}
+  details p{margin:8px 0 0}
+  .links{font-family:var(--sans);font-size:13.5px;margin-top:10px}
+  .links a{margin-right:14px}
 
-  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
-           border:1px solid var(--rule);border-radius:5px;overflow:hidden;margin:16px 0 4px}
-  .figures div{background:var(--panel);padding:13px 14px}
-  .figures .num{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:21px;
-                color:var(--ink);font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums}
-  .figures .lab{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:12.5px;
-                color:var(--muted);line-height:1.4;margin-top:3px}
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);
+           border-radius:5px;overflow:hidden;margin:14px 0 6px}
+  .figures > div{background:var(--panel);padding:12px 14px}
+  .figures .num{font-family:var(--sans);font-size:20px;color:var(--ink);font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums}
+  .figures .lab{font-family:var(--sans);font-size:12.5px;color:var(--muted);line-height:1.4;margin-top:3px}
   @media(max-width:560px){.figures{grid-template-columns:1fr}}
 
-  .proj{padding:16px 0;border-bottom:1px solid var(--rule)}
+  /* projects + experience */
+  .proj{padding:14px 0;border-bottom:1px solid var(--rule)}
   .proj:last-child{border-bottom:0}
   .proj h3{font-size:16.5px;margin-bottom:3px}
   .proj p{margin:0;font-size:15.5px}
-  .proj .links{margin-top:7px}
+  .proj .links{margin-top:6px}
 
-  .job{display:flex;gap:20px;padding:14px 0;border-bottom:1px solid var(--rule)}
+  .job{display:flex;gap:20px;padding:13px 0;border-bottom:1px solid var(--rule)}
   .job:last-of-type{border-bottom:0}
-  .job .when{flex:0 0 126px;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-             font-size:13px;color:var(--muted);padding-top:3px}
+  .job .when{flex:0 0 130px;font-family:var(--sans);font-size:13px;color:var(--muted);padding-top:3px}
   .job h3{font-size:16px;margin-bottom:2px}
-  .job .where{font-size:14.5px;color:var(--muted);margin:0 0 5px}
+  .job .where{font-size:14.5px;color:var(--muted);margin:0 0 4px}
   .job p{margin:0;font-size:15.5px}
   @media(max-width:560px){.job{display:block}.job .when{margin-bottom:4px}}
+  .subhead{font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:30px 0 6px}
 
-  .skills dt{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-             font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:14px}
-  .skills dd{margin:3px 0 0;font-size:15.5px}
+  .skills dt{font-family:var(--sans);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:13px}
   .skills dt:first-child{margin-top:0}
+  .skills dd{margin:3px 0 0;font-size:15.5px}
 
-  footer{border-top:1px solid var(--rule);padding:30px 0 44px;
-         font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
-         font-size:13.5px;color:var(--muted)}
+  footer{border-top:1px solid var(--rule);padding:28px 0 42px;font-family:var(--sans);font-size:13.5px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -137,279 +146,250 @@
   <div class="wrap">
     <a class="name" href="#top">Usama Ikram</a>
     <ul>
-      <li class="opt"><a href="#interests">Interests</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#manuscripts">Manuscripts</a></li>
       <li class="opt"><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li class="opt"><a href="Usama_Ikram_CV.pdf">CV</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="kicker">MS Candidate in Artificial Intelligence · DGIST, Republic of Korea</div>
-      <h1>Usama Ikram</h1>
-      <p class="lede">
-        I am a graduate researcher in artificial intelligence, working in machine learning and
-        computer vision with a growing focus on multimodal and foundation models. My research asks
-        what happens to pretrained models when they leave the benchmark: how they can be adapted to
-        specialised domains at reasonable cost, and whether the resulting systems are dependable for
-        the purpose they were built for.
-      </p>
-      <p>
-        That question has taken me across several settings. I have derived a latency bound that
-        decides whether a vision-language model can sit inside a real-time human-robot interaction
-        loop, adapted lightweight vision backbones to holographic cell imaging where the usual
-        training objectives quietly fail, built a network that measures cells directly from a raw
-        hologram and reported plainly where its central idea did not work, and led a systematic
-        review that counted how much evidence stands behind a set of clinical claims. Before my MS I
-        spent two years as an AI research engineer, building models that had to run on constrained
-        hardware and on data that rarely behaved as documented.
-      </p>
-      <p>
-        I have three first-authored manuscripts under review and a fourth in preparation, and I am
-        applying for PhD positions starting in the second half of 2027.
-      </p>
-      <div class="hero-links">
-        <a href="mailto:usamaikram@dgist.ac.kr">usamaikram@dgist.ac.kr</a>
-        <a href="https://github.com/uikram">GitHub</a>
-        <a href="https://www.linkedin.com/in/usamaikram/">LinkedIn</a>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">MS Candidate in Artificial Intelligence · DGIST, Republic of Korea</div>
+        <h1>Usama Ikram</h1>
+        <p class="lede">
+          I am a graduate researcher in the Intelligent Imaging and Vision Systems Laboratory at DGIST,
+          working on computer vision and multimodal AI. Most of my work takes large pretrained models,
+          adapts them to a new domain with LoRA, and then checks what they keep, what they lose, and
+          whether they hold up where they are actually used.
+        </p>
+        <p>
+          So far that has meant SAM-family segmentation models adapted to cell images, CLIP and a
+          generative vision-language model tested inside a real-time control loop, and networks that
+          recover phase and cell masks directly from raw holograms in digital holographic microscopy.
+          Before my MS I spent about two years in industry building vision, time-series and LLM-based
+          systems, some of them running on embedded hardware.
+        </p>
+        <p>
+          In a PhD I want to work on vision-language models and LLMs for healthcare and biomedical
+          imaging, with a focus on explainable and trustworthy AI.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="Usama_Ikram_CV.pdf">CV (PDF)</a>
+          <a class="btn" href="mailto:usamaikram@dgist.ac.kr">Email</a>
+          <a class="btn" href="https://github.com/uikram">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/usamaikram/">LinkedIn</a>
+        </div>
       </div>
+      <img class="portrait" src="Profile%20Picture.jpg" alt="Portrait of Usama Ikram" width="148" height="180">
     </div>
-    <img class="portrait" src="Profile%20Picture.jpg" alt="Portrait of Usama Ikram" width="150" height="182">
+
+    <div class="glance">
+      <div><div class="k">Currently</div><div class="v">MS in Artificial Intelligence, DGIST (Sep 2025 – expected Jun 2027), GPA 3.86 / 4.30</div></div>
+      <div><div class="k">Looking for</div><div class="v">PhD positions starting Fall 2027</div></div>
+      <div><div class="k">Research</div><div class="v">Computer vision · VLMs and LLMs · LoRA adaptation · biomedical imaging</div></div>
+      <div><div class="k">Manuscripts</div><div class="v">Four first-authored, all under review; none accepted yet</div></div>
+    </div>
   </div>
 </header>
 
-<section id="interests">
+<section id="research">
   <div class="wrap">
-    <h2>Research interests</h2>
-    <p>
-      Broadly, machine learning and computer vision, with particular interest in the areas below.
-      Some of these I have worked in directly; others are directions I want to develop into during a
-      PhD, and I have tried to keep that distinction visible.
-    </p>
-
-    <div class="theme">
-      <h3>Multimodal and foundation models</h3>
-      <p>Vision-language models are where my hands-on experience sits, mainly on the adaptation and
-      deployment side. I would like to move further into systems that combine vision, language and
-      other modalities, and into how large generative models can support systems that cannot tolerate
-      their latency.</p>
+    <h2>Research at a glance</h2>
+    <div class="mgrid">
+      <a class="mtile" href="#m1">
+        <div class="top"><span class="num-id">M1</span><span class="status">Under review</span></div>
+        <div class="area">Holographic microscopy · learned reconstruction</div>
+        <h3>Phase and cell masks straight from a raw hologram</h3>
+        <div class="stat"><div class="v">22.0% → 17.4%</div><div class="l">per-cell dry-mass error, classical pipeline to network</div></div>
+      </a>
+      <a class="mtile" href="#m2">
+        <div class="top"><span class="num-id">M2</span><span class="status">Under review</span></div>
+        <div class="area">Segmentation · LoRA · SAM-family models</div>
+        <h3>Adapting lightweight SAM models to cell phase images</h3>
+        <div class="stat"><div class="v">5.22% → 3.04%</div><div class="l">integrated-phase error with a physics-aware loss</div></div>
+      </a>
+      <a class="mtile" href="#m3">
+        <div class="top"><span class="num-id">M3</span><span class="status">Under review</span></div>
+        <div class="area">Vision-language models · real-time systems</div>
+        <h3>Can a vision-language model run inside a control loop?</h3>
+        <div class="stat"><div class="v">17.92 vs 442 ms</div><div class="l">LoRA-CLIP vs a generative VLM, against a 37.77 ms bound</div></div>
+      </a>
+      <a class="mtile" href="#m4">
+        <div class="top"><span class="num-id">M4</span><span class="status">Under review</span></div>
+        <div class="area">Healthcare · evidence synthesis</div>
+        <h3>Mapping the evidence on glucose control in children with type 1 diabetes</h3>
+        <div class="stat"><div class="v">5,406 → 63</div><div class="l">records screened to studies, mapped into 47 determinants</div></div>
+      </a>
     </div>
-    <div class="theme">
-      <h3>What adaptation preserves, and what it deletes</h3>
-      <p>Low-rank adaptation of pretrained backbones, and what a restricted adaptation subspace changes
-      about what a model retains. In one study it preserved rare classes that full fine-tuning removed,
-      at no compute advantage; in another it left the representation intact while changing zero-shot
-      behaviour.</p>
-    </div>
-    <div class="theme">
-      <h3>Evaluation on the quantity that matters</h3>
-      <p>Judging a model by what its output is used for: per-class rather than average scores,
-      per-cell measurement error rather than image similarity, worst-case rather than mean latency,
-      and differences counted only when they exceed run-to-run noise.</p>
-    </div>
-    <div class="theme">
-      <h3>Real-time and deployable AI</h3>
-      <p>What models cost to run and what that cost implies for the systems around them: latency, memory
-      and energy characterisation, graph compilation and quantisation, and embedded inference.</p>
-    </div>
-    <div class="theme">
-      <h3>Healthcare and biomedical imaging</h3>
-      <p>Most of my applied work has been medical or biological, where labelled data are scarce, the
-      rare class is often the decisive one, and a measurement without an error bar is of limited use.
-      Uncertainty quantification is a direction I want to develop into.</p>
-    </div>
+    <p class="note overview-note">All four manuscripts are first-authored and under peer review. None has
+    been accepted or published yet.</p>
   </div>
 </section>
 
-<section id="research">
+<section id="manuscripts">
   <div class="wrap">
-    <h2>Research</h2>
-    <p class="note">
-      The first three manuscripts are first-authored and under peer review; none has been accepted or
-      published, and their full texts are available on request. The fourth is a complete draft in
-      preparation, also available on request. Code for every project is linked below.
-    </p>
+    <h2>Manuscripts</h2>
+    <p class="note">Code is linked where it is public.</p>
 
-    <article class="paper">
-      <h3>Delay-Aware Deployability of Multimodal Foundation Models for Real-Time Human-Robot
-        Interaction</h3>
-      <p class="authors"><b>Usama Ikram</b>, Youhyun Kim, Inkyu Moon</p>
-      <p class="venue">Submitted to IEEE Transactions on Human-Machine Systems
-        <span class="status">Under review</span></p>
-      <p>
-        Vision-language models are increasingly proposed as perception modules for assistive systems,
-        and are compared almost entirely on accuracy. In a wearable interaction loop the model's
-        inference time is a transport delay, and past some threshold the loop becomes unstable however
-        accurate the perception is. This work derives that threshold: modelling the loop as a
-        PID-controlled mass-spring-damper plant with perception delay, a first-order Padé
-        approximation and the Routh-Hurwitz criterion give a stability bound of 37.77 ms, against which
-        three architectures are compared on worst-case latency.
-      </p>
-      <ul>
-        <li>LoRA-adapted CLIP (0.65% of parameters trained) kept linear-probe quality at 85.69% against
-          85.95%, while zero-shot transfer rose 6.05% on remote-sensing imagery and fell 4.37% on
-          object-centric data: the features survived and the zero-shot readout moved.</li>
-        <li>Merged LoRA-CLIP reached 17.92 ms worst-case latency, inside the bound and inside the
-          18.76 ms bound that survives ±50% biomechanical variation. Leaving the adapters unmerged
-          added 8.5 ms.</li>
-        <li>A Frozen Prefix-LM reached 442.02 ms, 11.7× over the bound, although its visual encoder
-          alone took 8.25 ms. The cost is autoregressive decoding, not perception.</li>
-      </ul>
-      <p class="caveat">
-        Measured on a desktop RTX A5000; edge energy and battery figures are projections, and the
-        analysis was validated in software-in-the-loop simulation rather than on a physical robot.
-      </p>
-      <p class="links"><a href="https://github.com/uikram/Delay_Aware_Deployability_Proof">Code</a></p>
-    </article>
-
-    <article class="paper">
-      <h3>Physics-Aware Lightweight Segmentation for Quantitative Holographic Cell Analysis with
-        Optical Mass Preservation</h3>
-      <p class="authors"><b>Usama Ikram</b>, Youhyun Kim, Inkyu Moon</p>
-      <p class="venue">Submitted to Applied Physics B: Lasers and Optics
-        <span class="status">Under review</span></p>
-      <p>
-        In holographic microscopy a cell's dry mass is its quantitative phase integrated over the
-        segmented region, so the predicted boundary is the domain of a measurement, and a pixel-overlap
-        loss never constrains it. This work adds phase-mask contrast, boundary-gradient alignment and
-        integrated-phase preservation terms to the objective, and uses LoRA to adapt three lightweight
-        backbones from natural images to red-blood-cell phase maps.
-      </p>
-      <ul>
-        <li>Integrated-phase error fell from 5.22% to 3.04% on EdgeSAM and from 15.52% to 3.01% on
-          MobileNet-UNet, with boundary F1 rising to 0.953 and 0.970. The terms interact: contrast
-          alone collapsed boundary F1 to 0.386, and on MobileSAM the full objective did worse than a
-          partial one.</li>
-        <li>Full fine-tuning drove one minority class to zero Dice in all three backbones; LoRA at
-          rank 8 kept all four classes in both attention-based backbones. The CNN that missed two
-          classes had the best boundary F1 of the three, which is why per-class reporting matters.</li>
-        <li>On 1,974 cells over a 47-day storage study, dry mass from predicted masks agreed with
-          annotation-derived values at <em>r</em> = 0.966, and ONNX FP16 inference took 4.33 ms at
-          16.4 MB.</li>
-      </ul>
-      <p class="caveat">
-        Efficiency figures are desktop-GPU measurements; embedded deployment is not demonstrated. Model
-        selection used the validation set, and no independent held-out cohort was available.
-      </p>
-      <p class="links"><a href="https://github.com/uikram/Lightweight_QPI_Segmentation">Code</a></p>
-    </article>
-
-    <article class="paper">
-      <h3>Measurement-Oriented End-to-End Holographic Quantitative Phase Analysis: Joint
-        Reconstruction, Segmentation and Per-Cell Measurement from a Single Raw Hologram</h3>
+    <article class="paper" id="m1">
+      <div class="tagrow"><span class="mid">M1</span><span class="status">Under review</span><span>Quantitative cell analysis</span></div>
+      <h3>Joint Phase Reconstruction and Cell Segmentation from Raw Holograms for Per-Cell Dry-Mass Measurement</h3>
       <p class="authors"><b>Usama Ikram</b>, Inkyu Moon</p>
-      <p class="venue">Manuscript
-        <span class="status prep">In preparation</span></p>
       <p>
-        The previous study could move the boundary but not the phase inside it, which came from a
-        classical reconstruction outside the learned system. Here one network, a shared MobileNetV2
-        encoder with two U-Net decoders at 9.6M parameters, maps a raw hologram directly to phase,
-        segmentation and per-cell dry mass, with no numerical reconstruction at inference. It is
-        evaluated on the measurement, not the image, on 800 fields of three cancer cell lines imaged in
-        both off-axis and in-line Gabor geometry, with three training seeds and differences counted
-        only when they exceed twice the between-seed spread.
+        A cell's dry mass is its phase integrated over the segmented cell, so it depends on the phase
+        and the boundary together. One 9.6M-parameter network (MobileNetV2 encoder, two U-Net decoders)
+        maps a raw hologram directly to quantitative phase and a cell segmentation, with no numerical
+        reconstruction at inference, and is scored on paired per-cell dry mass together with detection
+        recall and field totals. Data: 800 fields of three cancer cell lines, each with an off-axis and
+        an in-line Gabor hologram; three training seeds with a between-seed criterion set in advance.
       </p>
       <div class="figures">
-        <div><div class="num">22.45% → 17.63%</div><div class="lab">per-cell dry-mass error, classical pipeline to network (off-axis)</div></div>
-        <div><div class="num">4.8%</div><div class="lab">dry-mass error from a one-pixel boundary shift, at Dice 0.974</div></div>
-        <div><div class="num">0.592</div><div class="lab">detection recall, the main open weakness</div></div>
+        <div><div class="num">22.0% → 17.4%</div><div class="lab">matched-cell dry-mass error, classical pipeline to network (off-axis), at similar Dice</div></div>
+        <div><div class="num">0.593</div><div class="lab">detection recall: 0.912 for interior cells, 0.212 at the field boundary</div></div>
+        <div><div class="num">4.8%</div><div class="lab">dry-mass change from a one-pixel boundary shift while Dice stays 0.974</div></div>
       </div>
       <ul>
-        <li>In the in-line geometry, where the classical pipeline as configured recovered no usable
-          phase, the network reached a phase correlation of 0.81 over 1,755 matched cells.</li>
-        <li>The central hypothesis failed and is reported as such: a per-cell integrated-phase loss
-          raised dry-mass error beyond seed noise at every weight tried. My stated but untested
-          interpretation is that labels derived from the reconstruction target leave the loss nothing
-          to add, and an independent membrane-stain check shows how large that concern is.</li>
-        <li>A model-free error budget sets the scale: a segmentation score is not a proxy for
-          measurement quality, and the measurement chain's own floor is 0.036% per cell.</li>
+        <li>In-line, one training run reached phase r = 0.867 where the tested classical in-line
+          reconstruction recovered only near-background contrast.</li>
+        <li>Adding measurement-aware integrated-phase losses increased the per-cell error beyond seed
+          variation, and a hologram forward-model term did not constrain the off-axis propagation
+          distance. Both are reported as negative results.</li>
       </ul>
-      <p class="caveat">
-        LoRA is implemented but was not trained, so no LoRA claim is made; timings (8.42 ms per field,
-        ONNX FP16) are workstation-GPU figures, and all data come from one instrument.
-      </p>
+      <details><summary>Scope and limitations</summary>
+        <p>Segmentation labels are derived from the reference phase, so results are agreement with that
+        reference rather than with independent ground truth. All data come from one instrument.
+        Timings (8.39 ms per 900×900 field, ONNX FP16) are network-only, on a workstation RTX A5000.</p>
+      </details>
       <p class="links"><a href="https://github.com/uikram/End-to-End-Lightweight-Holographic-Reconstruction-and-Quantitative-Cell-Analysis">Code</a></p>
     </article>
 
-    <article class="paper">
-      <h3>Determinants of Glycaemic Outcomes in Children and Adolescents with Type 1 Diabetes:
-        A Systematic Review and Evidence Map</h3>
-      <p class="authors"><b>Usama Ikram</b> (corresponding author), Abey Jose,
-        Francisca C. Eyzaguirre, Alejandro Mac Cawley</p>
-      <p class="venue">Submitted to Pediatric Diabetes · PROSPERO CRD420251045872
-        <span class="status">Under review</span></p>
+    <article class="paper" id="m2">
+      <div class="tagrow"><span class="mid">M2</span><span class="status">Under review</span><span>Applied Physics B: Lasers and Optics</span></div>
+      <h3>Physics-Aware Lightweight Segmentation for Quantitative Holographic Cell Analysis with Optical Mass Preservation</h3>
+      <p class="authors"><b>Usama Ikram</b>, Youhyun Kim, Inkyu Moon</p>
       <p>
-        With collaborators at the University of Limerick and Pontificia Universidad Católica de Chile.
-        Reviews in this area list determinants that have been shown to matter without recording how
-        many studies tested each. I led a review of 63 studies drawn from 5,406 records across four
-        databases, screened independently by two reviewers and reported to PRISMA 2020, and built the
-        PEARL framework: 47 determinants across 12 sub-domains and five domains, assigned under four
-        stated rules, each with a counted weight of evidence.
+        In holographic microscopy the predicted cell boundary is the domain of a measurement, and a
+        pixel-overlap loss never constrains it. This work adds phase-mask contrast, boundary-gradient
+        alignment and integrated-phase preservation terms to the segmentation objective, and uses LoRA to
+        adapt EdgeSAM, MobileSAM and a MobileNet-UNet from natural images to red-blood-cell phase maps.
       </p>
+      <div class="figures">
+        <div><div class="num">5.22% → 3.04%</div><div class="lab">integrated-phase error, Dice-only to physics-aware loss (EdgeSAM)</div></div>
+        <div><div class="num">0.000 → 0.776</div><div class="lab">rare-class (echinocyte) Dice, full fine-tuning to rank-8 LoRA</div></div>
+        <div><div class="num">r = 0.966</div><div class="lab">predicted vs annotated dry mass, 1,974 cells over 47 days</div></div>
+      </div>
       <ul>
-        <li>Evidence volume and consistency ran in opposite directions: 68% of the 148 physiological
-          associations reached significance, against all 26 in the psychological domain, which
-          selective reporting explains more economically than larger effects.</li>
-        <li>Frequently cited determinants are not always well supported: sex reached significance in
-          9 of 23 studies, body mass index in 7 of 15.</li>
+        <li>On MobileNet-UNet the same loss cut integrated-phase error from 15.52% to 3.01%. The terms
+          interact, though: phase-mask contrast on its own collapsed boundary F1 to 0.386.</li>
+        <li>Full fine-tuning erased a minority class in all three backbones, while LoRA kept all four
+          classes in both SAM-based models. The CNN with the best boundary F1 (0.971) had stopped
+          predicting both minority classes, which an average score would never show.</li>
       </ul>
+      <details><summary>Scope and limitations</summary>
+        <p>Efficiency figures (4.33 ms, 16.4 MB, ONNX FP16) are desktop-GPU measurements; embedded
+        deployment is not demonstrated. Model selection used the validation set, and no independent
+        held-out cohort was available.</p>
+      </details>
+      <p class="links"><a href="https://github.com/uikram/Lightweight_QPI_Segmentation">Code</a></p>
+    </article>
+
+    <article class="paper" id="m3">
+      <div class="tagrow"><span class="mid">M3</span><span class="status">Under review</span><span>IEEE Transactions on Human-Machine Systems</span></div>
+      <h3>Delay-Aware Deployability of Multimodal Foundation Models for Real-Time Human-Robot Interaction</h3>
+      <p class="authors"><b>Usama Ikram</b>, Youhyun Kim, Inkyu Moon</p>
+      <p>
+        In a wearable interaction loop a model's inference time acts as a transport delay, and past some
+        threshold the loop becomes unstable however accurate the perception is. A first-order Padé
+        approximation and the Routh-Hurwitz criterion give that threshold, 37.77 ms, and three
+        architectures (CLIP, LoRA-adapted CLIP, a Frozen Prefix-LM) are compared on worst-case latency
+        against it.
+      </p>
+      <div class="figures">
+        <div><div class="num">37.77 ms</div><div class="lab">stability bound of the loop, from a Padé approximation and Routh-Hurwitz</div></div>
+        <div><div class="num">17.92 vs 442 ms</div><div class="lab">worst-case latency, merged LoRA-CLIP vs the Frozen Prefix-LM</div></div>
+        <div><div class="num">51.25% vs 85.95%</div><div class="lab">linear-probe accuracy, generative VLM features vs CLIP</div></div>
+      </div>
+      <ul>
+        <li>LoRA-CLIP, training 0.65% of the parameters, kept its linear-probe accuracy (85.69%) while
+          zero-shot accuracy rose 6.05% on remote-sensing images and fell 4.37% on object-centric data.
+          The representation held and the zero-shot readout moved.</li>
+        <li>The Frozen Prefix-LM gave fluent, image-grounded answers, but took 442 ms end to end although
+          its visual encoder ran in 8.25 ms. Autoregressive decoding, not perception, put it 11.7× over the
+          bound. Leaving the LoRA adapters unmerged added 8.5 ms.</li>
+      </ul>
+      <details><summary>Scope and limitations</summary>
+        <p>Measured on a desktop RTX A5000; edge energy and battery figures are projections, and the
+        analysis was validated in software-in-the-loop simulation rather than on a physical robot.</p>
+      </details>
+      <p class="links"><a href="https://github.com/uikram/Delay_Aware_Deployability_Proof">Code</a></p>
+    </article>
+
+    <article class="paper" id="m4">
+      <div class="tagrow"><span class="mid">M4</span><span class="status">Under review</span><span>Pediatric Diabetes · PROSPERO CRD420251045872</span></div>
+      <h3>Determinants of Glycaemic Outcomes in Children and Adolescents with Type 1 Diabetes: A Systematic Review and Evidence Map</h3>
+      <p class="authors"><b>Usama Ikram</b> (corresponding author), Abey Jose, Francisca C. Eyzaguirre, Alejandro Mac Cawley</p>
+      <p>
+        How well children and adolescents with type 1 diabetes control their blood glucose varies a lot,
+        and the factors behind it are studied in separate clinical, psychological, behavioural, family and
+        socioeconomic literatures that rarely meet. Earlier reviews each cover one part of this and do not
+        say how often a factor has been tested or how consistently it holds up.
+      </p>
+      <p>
+        I led this review as first and corresponding author, with collaborators at the University of
+        Limerick and Pontificia Universidad Católica de Chile. We searched Web of Science, Scopus, PubMed
+        and Embase up to January 2026, screened records with two independent reviewers and reported to
+        PRISMA 2020. The included studies gave 297 factor-study associations, which I organised into the
+        PEARL framework: 47 determinants in 12 sub-domains and five domains (physiology and clinical
+        status, emotional and psychological wellbeing, autonomy and engagement in self-care,
+        relationships and family dynamics, and lifestyle, learning and living environment), each with a
+        count of how often it was tested and how often it reached significance.
+      </p>
+      <div class="figures">
+        <div><div class="num">5,406 → 63</div><div class="lab">records screened to included studies, across four databases</div></div>
+        <div><div class="num">47</div><div class="lab">determinants in the PEARL framework, from 297 associations</div></div>
+        <div><div class="num">68% vs 100%</div><div class="lab">associations reaching significance: physiology (101/148) vs emotional wellbeing (26/26)</div></div>
+      </div>
+      <ul>
+        <li>The evidence is uneven. Physiology held 31.9% of the factors but 49.8% of all associations,
+          and nine factors rested on a single study.</li>
+        <li>The most tested factors were age (32 studies, significant in 25), duration of diabetes (26;
+          20), sex (23; 9) and insulin delivery method (20; 17).</li>
+        <li>The well-replicated biomedical findings were inconsistent, while the small psychosocial
+          literature was uniformly significant. Selective reporting explains that more simply than larger
+          effects, so replicating psychosocial and family factors, with effect sizes reported, is the main
+          research priority.</li>
+      </ul>
+      <details><summary>Scope and limitations</summary>
+        <p>The review counts how often and how consistently each factor was tested. It did not extract
+        the direction or size of associations, so it does not say whether a factor raises or lowers
+        glucose levels. Significance was counted at any of three pre-specified thresholds (p &lt; 0.05,
+        0.10 or 0.15). PROSPERO CRD420251045872.</p>
+      </details>
     </article>
   </div>
 </section>
 
 <section id="projects">
   <div class="wrap">
-    <h2>Earlier projects</h2>
-
+    <h2>Undergraduate research projects</h2>
     <div class="proj">
       <h3>Explainable ensemble for knee osteoarthritis grading</h3>
-      <p>Kellgren-Lawrence grading from OAI knee radiographs with a heterogeneous CNN ensemble and a
-        mixed voting rule, using Grad-CAM and LIME to check that predictions rested on joint space
-        narrowing rather than on imaging artefacts.</p>
+      <p>Kellgren-Lawrence grading of 8,260 knee radiographs from the Osteoarthritis Initiative with an
+        ensemble of eight CNN architectures and a mixed hard and soft voting rule (76.93% accuracy), using
+        Grad-CAM and LIME to check that predictions rested on joint space narrowing.</p>
       <p class="links"><a href="https://github.com/uikram/Knee_Osteoarthritis_Classification">Code</a></p>
     </div>
-
     <div class="proj">
       <h3>Early detection of Alzheimer's disease on embedded hardware</h3>
-      <p>Undergraduate thesis. CNN classification of ADNI imaging with ridge regression for score
-        prediction and an SVM progression stage, deployed on a Jetson Nano to test whether the pipeline
-        fits an embedded power budget.</p>
+      <p>Undergraduate thesis at NUST. CNN classification of ADNI data with ridge regression for score
+        prediction and SVM models for progression, deployed on a Jetson Nano.</p>
       <p class="links"><a href="https://github.com/uikram/Early-Detection-of-Alzheimer-s-Disease">Code</a></p>
-    </div>
-
-    <div class="proj">
-      <h3>Automated candidate recruitment system</h3>
-      <p>An LLM-based system that analyses and scores resumes through prompt engineering, generates
-        technical quizzes from each CV, and flags recruitment red flags such as rapid job changes.</p>
-    </div>
-
-    <div class="proj">
-      <h3>Smart surveillance system</h3>
-      <p>Lightweight detection and classification models on RK3588 chipsets for on-device, low-latency
-        processing in smart cameras for secure environments.</p>
-    </div>
-
-    <div class="proj">
-      <h3>IoT-driven predictive maintenance</h3>
-      <p>Standardised accelerometer vibration readings from injection moulding machines and trained
-        neural classifiers to separate healthy from faulty states, so maintenance could be scheduled
-        before failure.</p>
-    </div>
-
-    <div class="proj">
-      <h3>Autoencoder-based anomaly detection</h3>
-      <p>An autoencoder that learns normal patterns in time series data and flags anomalies through
-        reconstruction error.</p>
-    </div>
-
-    <div class="proj">
-      <h3>Machine positioning by trilateration</h3>
-      <p>On-site measurement of Bluetooth signal strength from IoT terminals, with trilateration to
-        locate machines on a manufacturing floor for supply chain tracking.</p>
     </div>
   </div>
 </section>
@@ -419,74 +399,80 @@
     <h2>Experience &amp; education</h2>
 
     <div class="job">
-      <div class="when">Sep 2025 &ndash; present</div>
+      <div class="when">Sep 2025 – present</div>
       <div>
         <h3>Graduate Researcher</h3>
-        <p class="where">Intelligent Imaging and Vision Systems Laboratory, Department of Artificial
-          Intelligence, DGIST, Daegu</p>
-        <p>Deployability of multimodal foundation models in real-time interaction; parameter-efficient
-          adaptation of lightweight vision models for quantitative phase imaging; end-to-end learned
-          measurement from raw holograms.</p>
+        <p class="where">Intelligent Imaging and Vision Systems Laboratory, Department of Artificial Intelligence, DGIST, Daegu</p>
+        <p>LoRA adaptation of vision and vision-language models, evaluation of CLIP against a generative
+          VLM in a real-time loop (M3), and learned segmentation and phase reconstruction in digital
+          holographic microscopy (M1, M2).</p>
       </div>
     </div>
-
     <div class="job">
-      <div class="when">Jul &ndash; Sep 2025</div>
+      <div class="when">Jul – Sep 2025</div>
       <div>
         <h3>AI &amp; ML Scientist</h3>
-        <p class="where">National Aerospace Science &amp; Technology Park, Rawalpindi</p>
-        <p>Detection and segmentation pipelines for surveillance imagery, deployed on RK3588 hardware;
-          autoencoder benchmarking for multimodal representation learning; an LLM-based candidate
-          screening system.</p>
+        <p class="where">National Aerospace Science &amp; Technology Park (NASTP), Rawalpindi</p>
+        <p>Built YOLO-based detection and segmentation pipelines for defence surveillance, benchmarked
+          autoencoders for secure representation learning on multimodal data, investigated neural
+          compression and encryption against unauthorised reconstruction, designed an LLM-based
+          candidate evaluation system, and ran on-device inference on RK3588 boards for smart cameras.</p>
       </div>
     </div>
-
     <div class="job">
-      <div class="when">Jul 2023 &ndash; Mar 2025</div>
+      <div class="when">Jul 2023 – Mar 2025</div>
       <div>
         <h3>AI Research Engineer</h3>
         <p class="where">DeepChain, Islamabad</p>
-        <p>Convolutional, recurrent and autoencoder models for supply chain automation and industrial
-          monitoring. Diagnosed data loss between field sensors and collection terminals and rebuilt
-          the ingestion pipeline, so that models were trained on the signal the sensors produced.</p>
+        <p>Designed and trained CNN, LSTM and autoencoder models for supply chain automation: predictive
+          maintenance from machine vibration data, anomaly detection in time series, and machine
+          positioning by Bluetooth trilateration. Fixed data loss between field sensors and collection
+          terminals so models trained on the real sensor signal, and reported results to clients.</p>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">Jul – Oct 2021</div>
+      <div>
+        <h3>Junior Frontend Web Developer (Intern)</h3>
+        <p class="where">National Cyber Security Auditing and Evaluation Lab, Rawalpindi</p>
       </div>
     </div>
 
+    <div class="subhead">Education</div>
     <div class="job">
-      <div class="when">Sep 2025 &ndash; Jun 2027</div>
+      <div class="when">Sep 2025 – Jun 2027 (expected)</div>
       <div>
         <h3>MS in Artificial Intelligence</h3>
-        <p class="where">Daegu Gyeongbuk Institute of Science and Technology (DGIST) · GPA 3.86/4.30</p>
-        <p>Coursework includes Convex Optimization, Deep Learning Lab, Optical Signal Processing,
-          Biomedical Programming, and Random Variables and Random Processes.</p>
+        <p class="where">Daegu Gyeongbuk Institute of Science and Technology (DGIST) · GPA 3.86 / 4.30</p>
+        <p>Coursework includes Optical Signal Processing, Biomedical Programming, Convex Optimization,
+          Deep Learning Lab, and Random Variables and Random Processes.</p>
       </div>
     </div>
-
     <div class="job">
-      <div class="when">Sep 2019 &ndash; Jun 2023</div>
+      <div class="when">Sep 2019 – Jun 2023</div>
       <div>
-        <h3>BE in Electrical Engineering</h3>
-        <p class="where">National University of Sciences and Technology (NUST), College of Electrical
-          and Mechanical Engineering, Rawalpindi · CGPA 3.27/4.00</p>
-        <p>Signal processing, control systems, computer vision and machine learning.</p>
+        <h3>Bachelor of Electrical Engineering</h3>
+        <p class="where">National University of Sciences and Technology (NUST), College of Electrical and
+          Mechanical Engineering, Rawalpindi · CGPA 3.27 / 4.00</p>
+        <p>Machine learning, computer vision, image and signal processing, control systems.</p>
       </div>
     </div>
 
-    <h2 style="margin-top:44px">Technical skills</h2>
+    <h2 style="margin-top:42px">Technical skills</h2>
     <dl class="skills">
       <dt>Programming</dt>
-      <dd>Python, C++, CUDA, MATLAB, SQL, LaTeX</dd>
-      <dt>Machine learning</dt>
-      <dd>PyTorch, TensorFlow, Hugging Face, PEFT/LoRA, ONNX Runtime, OpenCV, mixed-precision
-        training</dd>
-      <dt>Vision &amp; multimodal</dt>
-      <dd>Vision-language model adaptation and probing, semantic and instance segmentation, object
-        detection, learned hologram reconstruction, quantitative phase image analysis</dd>
+      <dd>Python, C++, CUDA, MATLAB, SQL, LaTeX · PyTorch, TensorFlow, Hugging Face, PEFT, ONNX Runtime, OpenCV, scikit-learn</dd>
+      <dt>Holography and QPI</dt>
+      <dd>Off-axis and in-line hologram reconstruction (angular-spectrum propagation, Gerchberg-Saxton),
+        learned phase reconstruction, per-cell dry-mass measurement</dd>
+      <dt>Vision and multimodal</dt>
+      <dd>Segmentation and detection, LoRA adaptation of CLIP and SAM-family models, zero-shot, few-shot
+        and linear-probe evaluation, Grad-CAM and LIME, LLM-based tools with prompt engineering</dd>
       <dt>Evaluation</dt>
-      <dd>Per-class and per-instance metrics, multi-seed replication, bootstrap intervals,
-        Bland-Altman agreement, error budgets, systematic review methods (PRISMA 2020)</dd>
+      <dd>Per-class and per-cell metrics, multi-seed replication, bootstrap intervals, Bland-Altman
+        agreement, error budgets, systematic review methods (PRISMA 2020, PROSPERO, MMAT)</dd>
       <dt>Deployment</dt>
-      <dd>Latency, memory and energy profiling, ONNX FP16 export, embedded inference on RK3588 and
+      <dd>ONNX FP16 inference, latency, memory and energy profiling, embedded inference on RK3588 and
         Jetson Nano, Docker, Git</dd>
     </dl>
   </div>
@@ -496,16 +482,18 @@
   <div class="wrap">
     <h2>Contact</h2>
     <p>
-      I am applying for PhD positions in machine learning and artificial intelligence starting in the
-      second half of 2027, with particular interest in multimodal and foundation models, efficient and
-      deployable AI, and healthcare applications. If your group works in any of these areas I would be
-      glad to hear from you, and happy to send the manuscripts that are still under review.
+      I am looking for PhD positions starting in Fall 2027 in computer vision and multimodal AI,
+      especially vision-language models and LLMs for healthcare and biomedical imaging, and explainable
+      and trustworthy AI. If your group
+      works in these areas I would be glad to hear from you, and happy to talk through any of the work,
+      results or code above.
     </p>
     <p class="sans" style="font-size:14.5px">
       <a href="mailto:usamaikram@dgist.ac.kr">usamaikram@dgist.ac.kr</a> ·
       <a href="mailto:osama.ikram007@gmail.com">osama.ikram007@gmail.com</a><br>
       <a href="https://github.com/uikram">github.com/uikram</a> ·
-      <a href="https://www.linkedin.com/in/usamaikram/">linkedin.com/in/usamaikram</a><br>
+      <a href="https://www.linkedin.com/in/usamaikram/">linkedin.com/in/usamaikram</a> ·
+      <a href="Usama_Ikram_CV.pdf">CV (PDF)</a><br>
       Daegu, Republic of Korea
     </p>
   </div>
@@ -513,8 +501,7 @@
 
 <footer>
   <div class="wrap">
-    Usama Ikram · Last updated September 2026. Three manuscripts are under review and none has been
-    accepted; one is in preparation.
+    Usama Ikram · Last updated October 2026. All four manuscripts are under review; none has been accepted.
   </div>
 </footer>
 
