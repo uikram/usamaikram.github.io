@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 756" width="1320" height="756" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1320" height="756" fill="#ffffff"/>
+
+  <!-- ================= COLUMN 1: P ================= -->
+  <g transform="translate(34, 20)">
+    <!-- Header -->
+    <rect x="0" y="0" width="234" height="58" fill="#425b7c"/>
+    <text x="117" y="23" font-size="23" font-weight="bold" fill="#ffffff" text-anchor="middle">P</text>
+    <text x="117" y="40" font-size="14.5" fill="#ffffff" text-anchor="middle">Physiology &amp;</text>
+    <text x="117" y="54" font-size="14.5" fill="#ffffff" text-anchor="middle">Clinical Status</text>
+    <text x="117" y="80" font-size="14.5" font-style="italic" fill="#333333" text-anchor="middle">15 factors</text>
+
+    <!-- Sub-domain 1 -->
+    <rect x="4" y="96" width="226" height="304" rx="6" fill="#ffffff" stroke="#425b7c" stroke-width="1.3"/>
+    <text x="16" y="120" font-size="15.5" font-weight="bold" fill="#425b7c">Biomedical and</text>
+    <text x="16" y="140" font-size="15.5" font-weight="bold" fill="#425b7c">Clinical Markers (9)</text>
+
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="165">· Age</text><text x="214" y="165" text-anchor="end">32</text>
+      <text x="20" y="189">· Sex</text><text x="214" y="189" text-anchor="end">23</text>
+      <text x="20" y="213">· Vitamin D status</text><text x="214" y="213" text-anchor="end">1</text>
+      <text x="20" y="237">· Thyroid status</text><text x="214" y="237" text-anchor="end">1</text>
+      <text x="20" y="261">· Duration of diabetes</text><text x="214" y="261" text-anchor="end">26</text>
+      <text x="20" y="285">· Body mass index</text><text x="214" y="285" text-anchor="end">14</text>
+      <text x="20" y="309">· Past medical and</text>
+      <text x="28" y="328">family history</text><text x="214" y="328" text-anchor="end">10</text>
+      <text x="20" y="352">· Lipodystrophy at</text>
+      <text x="28" y="371">injection sites</text><text x="214" y="371" text-anchor="end">2</text>
+      <text x="20" y="392">· Pubertal stage</text><text x="214" y="392" text-anchor="end">4</text>
+    </g>
+
+    <!-- Sub-domain 2 -->
+    <rect x="4" y="416" width="226" height="304" rx="6" fill="#ffffff" stroke="#425b7c" stroke-width="1.3"/>
+    <text x="16" y="440" font-size="15.5" font-weight="bold" fill="#425b7c">Treatment and</text>
+    <text x="16" y="460" font-size="15.5" font-weight="bold" fill="#425b7c">Technology (6)</text>
+
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="485">· Insulin delivery</text>
+      <text x="28" y="504">modality</text><text x="214" y="504" text-anchor="end">20</text>
+      <text x="20" y="528">· Insulin preparation</text>
+      <text x="28" y="547">used</text><text x="214" y="547" text-anchor="end">3</text>
+      <text x="20" y="571">· Active insulin time</text>
+      <text x="28" y="590">setting</text><text x="214" y="590" text-anchor="end">1</text>
+      <text x="20" y="614">· CGM provision</text><text x="214" y="614" text-anchor="end">4</text>
+      <text x="20" y="638">· Prescribed daily</text>
+      <text x="28" y="657">insulin dose</text><text x="214" y="657" text-anchor="end">6</text>
+      <text x="20" y="681">· Digital health</text>
+      <text x="28" y="700">intervention</text><text x="214" y="700" text-anchor="end">1</text>
+    </g>
+  </g>
+
+  <!-- ================= COLUMN 2: E ================= -->
+  <g transform="translate(288, 20)">
+    <!-- Header -->
+    <rect x="0" y="0" width="234" height="58" fill="#8b6d9c"/>
+    <text x="117" y="23" font-size="23" font-weight="bold" fill="#ffffff" text-anchor="middle">E</text>
+    <text x="117" y="40" font-size="14.5" fill="#ffffff" text-anchor="middle">Emotional &amp;</text>
+    <text x="117" y="54" font-size="14.5" fill="#ffffff" text-anchor="middle">Psychological Wellbeing</text>
+    <text x="117" y="80" font-size="14.5" font-style="italic" fill="#333333" text-anchor="middle">8 factors</text>
+
+    <!-- Sub-domain 1 -->
+    <rect x="4" y="96" width="226" height="196" rx="6" fill="#ffffff" stroke="#8b6d9c" stroke-width="1.3"/>
+    <text x="16" y="120" font-size="15.5" font-weight="bold" fill="#8b6d9c">Child Mental Health</text>
+    <text x="16" y="140" font-size="15.5" font-weight="bold" fill="#8b6d9c">(4)</text>
+
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="165">· Depressive symptoms</text><text x="214" y="165" text-anchor="end">5</text>
+      <text x="20" y="189">· Emotional wellbeing</text><text x="214" y="189" text-anchor="end">4</text>
+      <text x="20" y="213">· General psychological</text>
+      <text x="28" y="232">health</text><text x="214" y="232" text-anchor="end">2</text>
+      <text x="20" y="256">· Stress and diabetes</text>
+      <text x="28" y="275">distress</text><text x="214" y="275" text-anchor="end">5</text>
+    </g>
+
+    <!-- Sub-domain 2 -->
+    <rect x="4" y="308" width="226" height="86" rx="6" fill="#ffffff" stroke="#8b6d9c" stroke-width="1.3"/>
+    <text x="16" y="332" font-size="15.5" font-weight="bold" fill="#8b6d9c">Child Emotional</text>
+    <text x="16" y="352" font-size="15.5" font-weight="bold" fill="#8b6d9c">Competence (1)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="377">· Self-care confidence</text><text x="214" y="377" text-anchor="end">6</text>
+    </g>
+
+    <!-- Sub-domain 3 -->
+    <rect x="4" y="410" width="226" height="170" rx="6" fill="#ffffff" stroke="#8b6d9c" stroke-width="1.3"/>
+    <text x="16" y="434" font-size="15.5" font-weight="bold" fill="#8b6d9c">Caregiver Emotional</text>
+    <text x="16" y="454" font-size="15.5" font-weight="bold" fill="#8b6d9c">Functioning (3)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="479">· Maternal alexithymia</text><text x="214" y="479" text-anchor="end">1</text>
+      <text x="20" y="503">· Paternal emotional</text>
+      <text x="28" y="522">state</text><text x="214" y="522" text-anchor="end">1</text>
+      <text x="20" y="546">· Parental distress and</text>
+      <text x="28" y="565">fear</text><text x="214" y="565" text-anchor="end">2</text>
+    </g>
+  </g>
+
+  <!-- ================= COLUMN 3: A ================= -->
+  <g transform="translate(542, 20)">
+    <!-- Header -->
+    <rect x="0" y="0" width="234" height="58" fill="#d34e46"/>
+    <text x="117" y="23" font-size="23" font-weight="bold" fill="#ffffff" text-anchor="middle">A</text>
+    <text x="117" y="40" font-size="14.5" fill="#ffffff" text-anchor="middle">Autonomy &amp; Engagement</text>
+    <text x="117" y="54" font-size="14.5" fill="#ffffff" text-anchor="middle">in Self-Care</text>
+    <text x="117" y="80" font-size="14.5" font-style="italic" fill="#333333" text-anchor="middle">7 factors</text>
+
+    <!-- Sub-domain 1 -->
+    <rect x="4" y="96" width="226" height="196" rx="6" fill="#ffffff" stroke="#d34e46" stroke-width="1.3"/>
+    <text x="16" y="120" font-size="15.5" font-weight="bold" fill="#d34e46">Child Self-Management</text>
+    <text x="16" y="140" font-size="15.5" font-weight="bold" fill="#d34e46">(4)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="165">· Treatment adherence</text><text x="214" y="165" text-anchor="end">12</text>
+      <text x="20" y="189">· Glucose monitoring</text>
+      <text x="28" y="208">frequency</text><text x="214" y="208" text-anchor="end">15</text>
+      <text x="20" y="232">· Missed insulin doses</text><text x="214" y="232" text-anchor="end">3</text>
+      <text x="20" y="256">· Autonomy in self-</text>
+      <text x="28" y="275">management</text><text x="214" y="275" text-anchor="end">5</text>
+    </g>
+
+    <!-- Sub-domain 2 -->
+    <rect x="4" y="308" width="226" height="130" rx="6" fill="#ffffff" stroke="#d34e46" stroke-width="1.3"/>
+    <text x="16" y="332" font-size="15.5" font-weight="bold" fill="#d34e46">Knowledge and Cognitive</text>
+    <text x="16" y="352" font-size="15.5" font-weight="bold" fill="#d34e46">Readiness (3)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="377">· Diabetes knowledge</text><text x="214" y="377" text-anchor="end">5</text>
+      <text x="20" y="401">· Cognitive skills</text><text x="214" y="401" text-anchor="end">4</text>
+      <text x="20" y="425">· Health literacy</text><text x="214" y="425" text-anchor="end">2</text>
+    </g>
+  </g>
+
+  <!-- ================= COLUMN 4: R ================= -->
+  <g transform="translate(796, 20)">
+    <!-- Header -->
+    <rect x="0" y="0" width="234" height="58" fill="#7a9fc7"/>
+    <text x="117" y="23" font-size="23" font-weight="bold" fill="#ffffff" text-anchor="middle">R</text>
+    <text x="117" y="40" font-size="14.5" fill="#ffffff" text-anchor="middle">Relationships &amp;</text>
+    <text x="117" y="54" font-size="14.5" fill="#ffffff" text-anchor="middle">Family Dynamics</text>
+    <text x="117" y="80" font-size="14.5" font-style="italic" fill="#333333" text-anchor="middle">7 factors</text>
+
+    <!-- Sub-domain 1 -->
+    <rect x="4" y="96" width="226" height="196" rx="6" fill="#ffffff" stroke="#7a9fc7" stroke-width="1.3"/>
+    <text x="16" y="120" font-size="15.5" font-weight="bold" fill="#7a9fc7">Family Structure and</text>
+    <text x="16" y="140" font-size="15.5" font-weight="bold" fill="#7a9fc7">Functioning (4)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="165">· Family structure</text><text x="214" y="165" text-anchor="end">11</text>
+      <text x="20" y="189">· Family cohesion and</text>
+      <text x="28" y="208">conflict</text><text x="214" y="208" text-anchor="end">6</text>
+      <text x="20" y="232">· Family emotional</text>
+      <text x="28" y="251">climate</text><text x="214" y="251" text-anchor="end">1</text>
+      <text x="20" y="275">· Sibling and birth-order</text>
+      <text x="28" y="290">effects</text><text x="214" y="290" text-anchor="end">3</text>
+    </g>
+
+    <!-- Sub-domain 2 -->
+    <rect x="4" y="308" width="226" height="214" rx="6" fill="#ffffff" stroke="#7a9fc7" stroke-width="1.3"/>
+    <text x="16" y="332" font-size="15.5" font-weight="bold" fill="#7a9fc7">Social and Healthcare</text>
+    <text x="16" y="352" font-size="15.5" font-weight="bold" fill="#7a9fc7">Relationships (3)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="377">· Parental involvement</text>
+      <text x="28" y="396">and supervision</text><text x="214" y="396" text-anchor="end">8</text>
+      <text x="20" y="420">· Peer and social</text>
+      <text x="28" y="439">support</text><text x="214" y="439" text-anchor="end">2</text>
+      <text x="20" y="463">· Patient-provider</text>
+      <text x="28" y="482">communication and</text>
+      <text x="28" y="501">clinical support</text><text x="214" y="501" text-anchor="end">4</text>
+    </g>
+  </g>
+
+  <!-- ================= COLUMN 5: L ================= -->
+  <g transform="translate(1050, 20)">
+    <!-- Header -->
+    <rect x="0" y="0" width="234" height="58" fill="#f1c49d"/>
+    <text x="117" y="21" font-size="23" font-weight="bold" fill="#ffffff" text-anchor="middle">L</text>
+    <text x="117" y="36" font-size="13.5" fill="#ffffff" text-anchor="middle">Lifestyle, Learning &amp;</text>
+    <text x="117" y="51" font-size="13.5" fill="#ffffff" text-anchor="middle">Living Environment</text>
+    <text x="117" y="80" font-size="14.5" font-style="italic" fill="#333333" text-anchor="middle">10 factors</text>
+
+    <!-- Sub-domain 1 -->
+    <rect x="4" y="96" width="226" height="258" rx="6" fill="#ffffff" stroke="#e5b993" stroke-width="1.3"/>
+    <text x="16" y="120" font-size="15.5" font-weight="bold" fill="#d99b66">Socioeconomic and</text>
+    <text x="16" y="140" font-size="15.5" font-weight="bold" fill="#d99b66">Demographic Context (5)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="165">· Household</text>
+      <text x="28" y="184">socioeconomic status</text><text x="214" y="184" text-anchor="end">12</text>
+      <text x="20" y="208">· Parental education</text><text x="214" y="208" text-anchor="end">12</text>
+      <text x="20" y="232">· Parental occupation</text><text x="214" y="232" text-anchor="end">4</text>
+      <text x="20" y="256">· Race, ethnicity, and</text>
+      <text x="28" y="275">minority status</text><text x="214" y="275" text-anchor="end">6</text>
+      <text x="20" y="299">· Place of residence and</text>
+      <text x="28" y="318">healthcare access</text>
+      <text x="28" y="337">context</text><text x="214" y="337" text-anchor="end">4</text>
+    </g>
+
+    <!-- Sub-domain 2 -->
+    <rect x="4" y="368" width="226" height="128" rx="6" fill="#ffffff" stroke="#e5b993" stroke-width="1.3"/>
+    <text x="16" y="392" font-size="15.5" font-weight="bold" fill="#d99b66">School and Daily</text>
+    <text x="16" y="412" font-size="15.5" font-weight="bold" fill="#d99b66">Environment (2)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="437">· Academic performance</text><text x="214" y="437" text-anchor="end">1</text>
+      <text x="20" y="461">· School support for</text>
+      <text x="28" y="480">diabetes</text><text x="214" y="480" text-anchor="end">1</text>
+    </g>
+
+    <!-- Sub-domain 3 -->
+    <rect x="4" y="510" width="226" height="168" rx="6" fill="#ffffff" stroke="#e5b993" stroke-width="1.3"/>
+    <text x="16" y="534" font-size="15.5" font-weight="bold" fill="#d99b66">Lifestyle Behaviours</text>
+    <text x="16" y="554" font-size="15.5" font-weight="bold" fill="#d99b66">(3)</text>
+    <g font-size="14.5" fill="#222222">
+      <text x="20" y="579">· Dietary habits and</text>
+      <text x="28" y="598">nutrition</text><text x="214" y="598" text-anchor="end">5</text>
+      <text x="20" y="622">· Physical activity and</text>
+      <text x="28" y="641">screen time</text><text x="214" y="641" text-anchor="end">6</text>
+      <text x="20" y="665">· Sleep quality</text><text x="214" y="665" text-anchor="end">1</text>
+    </g>
+  </g>
+</svg>
