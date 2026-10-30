@@ -1773,7 +1773,7 @@
       </div>
       <div>
         <div class="k">First-Author Work</div>
-        <div class="v">4 Manuscripts in Peer Review<small>1 in revision (<i>Appl. Phys. B</i>) · 3 under review</small></div>
+        <div class="v">4 Manuscripts in Peer Review<small>M2 revised and resubmitted (<i>Appl. Phys. B</i>) · all 4 under review</small></div>
       </div>
     </div>
 
@@ -1787,11 +1787,11 @@
       <div class="thesis-pillars">
         <div class="tp-card">
           <strong>1. Rare classes</strong>
-          <span>The model with the best boundary F1 (0.971) predicted no echinocytes or stomatocytes. Full fine-tuning took echinocyte Dice to 0.000 in all three backbones, while rank-8 LoRA kept all four classes in EdgeSAM and MobileSAM (<a href="#m2">M2</a>).</span>
+          <span>The model with the highest instance score (AJI 0.551) lost spherocytes and stomatocytes in every training seed. With rank-8 LoRA, MobileSAM kept all four classes; full fine-tuning left it with one (<a href="#m2">M2</a>).</span>
         </div>
         <div class="tp-card">
           <strong>2. Measurements, not only overlap</strong>
-          <span>Moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974 (<a href="#m1">M1</a>). An integrated-phase loss term cut integrated-phase error from 5.22% to 3.04% on EdgeSAM (<a href="#m2">M2</a>).</span>
+          <span>Moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974 (<a href="#m1">M1</a>). On EdgeSAM, the physics-aware loss lowered integrated-phase error from 11.20% with Dice alone to 3.02% (<a href="#m2">M2</a>).</span>
         </div>
         <div class="tp-card">
           <strong>3. Timing and evidence</strong>
@@ -1830,11 +1830,11 @@
 
       <a class="mtile reveal" href="#m2" data-tags="vlm qpi trust edge">
         <img class="mtile-thumb" src="assets/m2_fig1_framework_overview.png" alt="M2 physics-aware LoRA segmentation overview" loading="lazy">
-        <div class="top"><span class="mid">M2</span><span class="status in-revision">In revision · Applied Physics B</span></div>
+        <div class="top"><span class="mid">M2</span><span class="status in-revision">Resubmitted · Applied Physics B</span></div>
         <div class="area">Segmentation · LoRA · SAM-family models</div>
         <h3>Adapting lightweight SAM models to cell phase images</h3>
-        <p class="tile-desc">A physics-aware loss and rank-8 LoRA for EdgeSAM, MobileSAM and MobileNet-UNet on red blood cell phase images, applied to 1,974 cells over 47 days of storage.</p>
-        <div class="stat"><div class="v">5.22% → 3.04%</div><div class="l">integrated-phase error (EdgeSAM)<br>with the physics-aware loss</div></div>
+        <p class="tile-desc">A physics-aware loss and LoRA for EdgeSAM, MobileSAM and MobileNet-UNet on red blood cell phase maps in radians, 180 runs, applied over 47 days of storage.</p>
+        <div class="stat"><div class="v">11.20% → 3.02%</div><div class="l">integrated-phase error (EdgeSAM, r=32)<br>Dice only → physics-aware loss</div></div>
       </a>
 
       <a class="mtile reveal" href="#m3" data-tags="vlm edge trust">
@@ -1856,7 +1856,7 @@
       </a>
     </div>
     <p class="overview-note">
-      <strong>Status:</strong> I am first author on all four manuscripts and corresponding author on M4. <strong>M2 is in revision at <i>Applied Physics B: Lasers and Optics</i></strong>; M1, M3 and M4 are under review. None is published yet, so summaries, figures and code are given on this page.
+      <strong>Status:</strong> I am first author on all four manuscripts and corresponding author on M4. <strong>M2 was revised and resubmitted to <i>Applied Physics B: Lasers and Optics</i> in October 2026</strong>; M1, M3 and M4 are under review. None is published yet, so summaries, figures and code are given on this page.
     </p>
   </div>
 </section>
@@ -1873,7 +1873,7 @@
         <div class="ri-num">01</div>
         <h3>What adaptation keeps and what it loses</h3>
         <p>
-          When I adapt a pretrained model to a small, imbalanced dataset, the average score does not tell me enough. In <a href="#m2">M2</a>, full fine-tuning erased the echinocyte class in all three backbones, while rank-8 LoRA kept all four classes in EdgeSAM and MobileSAM. In <a href="#m3">M3</a>, LoRA-CLIP kept its linear-probe accuracy (85.69% against 85.95%) but its zero-shot accuracy moved: up 6.05% on EuroSAT and down 4.37% on object-centric datasets.
+          When I adapt a pretrained model to a small, imbalanced dataset, the average score does not tell me enough. In <a href="#m2">M2</a>, MobileSAM kept all four cell classes with rank-8 LoRA, while full fine-tuning (one seed) kept only discocytes. In <a href="#m3">M3</a>, LoRA-CLIP kept its linear-probe accuracy (85.69% against 85.95%) but its zero-shot accuracy moved: up 6.05% on EuroSAT and down 4.37% on object-centric datasets.
         </p>
         <ul class="ri-q">
           <li>Which parts of a pretrained model carry the rare classes, and can adaptation be limited so it does not overwrite them?</li>
@@ -1886,7 +1886,7 @@
         <div class="ri-num">02</div>
         <h3>Models judged on the measurement</h3>
         <p>
-          In holographic microscopy, a cell's dry mass is the phase integrated over its mask, so the mask is part of the measurement. In <a href="#m1">M1</a>, moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974. In <a href="#m2">M2</a>, an integrated-phase term cut integrated-phase error from 5.22% to 3.04%, but in <a href="#m1">M1</a> similar terms made dry-mass error slightly worse when phase and mask were learned together from raw holograms.
+          In holographic microscopy, a cell's dry mass is the phase integrated over its mask, so the mask is part of the measurement. In <a href="#m1">M1</a>, moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974. In <a href="#m2">M2</a>, an integrated-phase term gave EdgeSAM its lowest integrated-phase error (3.02% against 11.20% for Dice alone), although with three seeds most such gains could not be separated from seed-to-seed variation, and in <a href="#m1">M1</a> similar terms made dry-mass error slightly worse when phase and mask were learned together from raw holograms.
         </p>
         <ul class="ri-q">
           <li>When do physical constraints help a model learn, and when do they compete with the main objective?</li>
@@ -2049,68 +2049,68 @@
     <article class="paper reveal" id="m2" data-tags="vlm qpi trust edge">
       <div class="tagrow">
         <span class="mid">M2</span>
-        <span class="status in-revision">In revision · Applied Physics B: Lasers and Optics</span>
+        <span class="status in-revision">Revised and resubmitted · Applied Physics B: Lasers and Optics</span>
         <span>SAM-family LoRA adaptation · Quantitative phase imaging</span>
         <span class="badge-code">Public Code</span>
       </div>
       <h3>Physics-Aware Lightweight Segmentation for Quantitative Holographic Cell Analysis with Optical Mass Preservation</h3>
       <p class="authors"><b>Usama Ikram</b>, Youhyun Kim, Inkyu Moon</p>
       <p>
-        In quantitative phase imaging, the predicted cell contour is the region over which phase is integrated to get dry mass, yet a standard overlap loss treats every boundary pixel the same. This work adds a physics-aware loss with three terms (phase-mask contrast, boundary-gradient alignment and integrated-phase preservation) to a class-weighted multi-class Dice loss, and uses rank-8 LoRA to adapt EdgeSAM, MobileSAM and a MobileNet-UNet to 1,090 annotated red blood cell phase images with four morphology classes (discocytes, echinocytes, spherocytes and stomatocytes).
+        In quantitative phase imaging, the predicted cell contour is the region over which phase is integrated to get dry mass, yet a standard overlap loss places no constraint on that phase. This work adds a physics-aware loss with three terms (phase-mask contrast, boundary-gradient alignment and integrated-phase preservation), computed on background-referenced phase in radians, to a class-weighted Dice loss, and uses LoRA to adapt EdgeSAM, MobileSAM and a MobileNet-UNet to 248 single-channel 32-bit phase maps of red blood cells with four morphology classes (discocytes, spherocytes, echinocytes and stomatocytes). Each architecture was trained at five LoRA ranks with four loss configurations and three seeds, 180 runs in total. Numbers and figures below are from the revised manuscript (October 2026).
       </p>
 
       <div class="figures">
-        <div><div class="num">5.22% → 3.04%</div><div class="lab">integrated-phase error on EdgeSAM with the full loss (15.52% → 3.01% on MobileNet-UNet), against Dice only</div></div>
-        <div><div class="num">0.000 → 0.776</div><div class="lab">echinocyte Dice on EdgeSAM: 0.000 with full fine-tuning, 0.776 with rank-8 LoRA</div></div>
-        <div><div class="num">r = 0.966</div><div class="lab">dry mass from predicted vs annotated masks, 1,974 cells over 47 days of blood storage (median bias 1.5%)</div></div>
+        <div><div class="num">11.20% → 3.02%</div><div class="lab">integrated-phase error on EdgeSAM (r=32), Dice only → full loss; with the full loss no class was lost in any seed</div></div>
+        <div><div class="num">42 / 45</div><div class="lab">seed-paired runs in which the full loss lowered integrated-phase error against Dice alone; the 95% interval excluded zero in 3 of 15 configurations</div></div>
+        <div><div class="num">−44% area</div><div class="lab">projected cell area, early vs late storage, in both annotation and predictions; a dry-mass decrease was not statistically supported</div></div>
       </div>
 
       <!-- Visual Empirical Breakdown -->
       <div class="viz-card">
         <div class="viz-title">
-          <span>Integrated-phase error and rare-class Dice (LoRA vs. full fine-tuning)</span>
-          <span>1,090 phase images · 1,974 cells</span>
+          <span>Loss ablation and what an aggregate score hides</span>
+          <span>248 phase maps · 2,049 validation cells · 3 seeds</span>
         </div>
         <div class="viz-grid">
           <div class="bar-group">
-            <div class="bar-group-label">Integrated-phase error (lower is better)</div>
+            <div class="bar-group-label">Integrated-phase error, EdgeSAM r=32 (lower is better)</div>
             <div class="bar-row">
-              <span class="b-name">MobileNet-UNet, Dice only</span>
+              <span class="b-name">Dice only</span>
               <div class="b-track"><div class="b-fill warn" data-width="95%"></div></div>
-              <span class="b-val">15.52%</span>
+              <span class="b-val">11.20%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">MobileNet-UNet, full loss</span>
-              <div class="b-track"><div class="b-fill" data-width="19%"></div></div>
-              <span class="b-val">3.01%</span>
+              <span class="b-name">+ phase-mask contrast</span>
+              <div class="b-track"><div class="b-fill muted" data-width="63.2%"></div></div>
+              <span class="b-val">7.45%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">EdgeSAM, Dice only</span>
-              <div class="b-track"><div class="b-fill muted" data-width="33%"></div></div>
-              <span class="b-val">5.22%</span>
+              <span class="b-name">+ boundary-gradient</span>
+              <div class="b-track"><div class="b-fill muted" data-width="30.9%"></div></div>
+              <span class="b-val">3.64%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">EdgeSAM, full loss</span>
-              <div class="b-track"><div class="b-fill" data-width="19.2%"></div></div>
-              <span class="b-val">3.04%</span>
+              <span class="b-name">+ integrated-phase (full)</span>
+              <div class="b-track"><div class="b-fill" data-width="25.6%"></div></div>
+              <span class="b-val">3.02%</span>
             </div>
           </div>
           <div class="bar-group">
-            <div class="bar-group-label">Echinocyte Dice</div>
+            <div class="bar-group-label">Instance score (AJI): MobileNet-UNet scores highest yet lost two classes in every seed</div>
             <div class="bar-row">
-              <span class="b-name">Full fine-tuning (all 3)</span>
-              <div class="b-track"><div class="b-fill warn" data-width="2%"></div></div>
-              <span class="b-val">0.000</span>
+              <span class="b-name">MobileNet-UNet r=8</span>
+              <div class="b-track"><div class="b-fill warn" data-width="55.1%"></div></div>
+              <span class="b-val">0.551</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">LoRA, EdgeSAM</span>
-              <div class="b-track"><div class="b-fill" data-width="77.6%"></div></div>
-              <span class="b-val">0.776</span>
+              <span class="b-name">EdgeSAM r=32</span>
+              <div class="b-track"><div class="b-fill" data-width="33.5%"></div></div>
+              <span class="b-val">0.335</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">LoRA, MobileSAM</span>
-              <div class="b-track"><div class="b-fill" data-width="85.2%"></div></div>
-              <span class="b-val">0.852</span>
+              <span class="b-name">MobileSAM r=8</span>
+              <div class="b-track"><div class="b-fill" data-width="26.2%"></div></div>
+              <span class="b-val">0.262</span>
             </div>
           </div>
         </div>
@@ -2130,49 +2130,51 @@
             </div>
             <div class="fig-thumb-cap">
               <strong>Fig. 1 · Physics-Aware LoRA Pipeline</strong>
-              LoRA-adapted SAM-family models trained with the physics-aware loss; 4.33 ms per image in ONNX FP16.
+              Background-referenced phase in radians enters the loss directly; the predicted masks are the measurement domains for area, integrated phase and dry mass.
             </div>
           </div>
           <div class="fig-thumb-card" data-lb="4">
             <div class="fig-thumb-img-wrap">
-              <img src="assets/m2_fig6_lora_vs_fft_classes.png" alt="M2 Per-Class Dice LoRA vs Full Fine-Tuning" loading="lazy">
+              <img src="assets/m2_fig3_per_class_dice.png" alt="M2 Per-Class Dice of the compared configurations" loading="lazy">
               <span class="fig-zoom-badge">Zoom</span>
             </div>
             <div class="fig-thumb-cap">
-              <strong>Fig. 6 · Minority Class Survival</strong>
-              Full fine-tuning erases echinocytes (0.000) in all three models; rank-8 LoRA keeps all four classes in EdgeSAM and MobileSAM.
+              <strong>Fig. 3 · Per-Class Dice</strong>
+              MobileNet-UNet loses spherocytes and stomatocytes in every seed; EdgeSAM (r=32) and MobileSAM (r=8) keep all four classes.
             </div>
           </div>
           <div class="fig-thumb-card" data-lb="5">
             <div class="fig-thumb-img-wrap">
-              <img src="assets/m2_fig7_phase_gradient_contours.png" alt="M2 Phase Gradient Contour Alignment" loading="lazy">
+              <img src="assets/m2_fig5_loss_ablation.png" alt="M2 Component-wise loss ablation" loading="lazy">
               <span class="fig-zoom-badge">Zoom</span>
             </div>
             <div class="fig-thumb-cap">
-              <strong>Fig. 7 · Phase-Gradient Contours</strong>
-              Predicted contours follow phase gradients (boundary F1 0.938 → 0.953 on EdgeSAM with the full loss).
+              <strong>Fig. 5 · Loss Ablation</strong>
+              Adding each physics term in turn: on EdgeSAM, boundary-gradient alignment removes the lost classes and integrated-phase preservation gives the lowest error.
             </div>
           </div>
           <div class="fig-thumb-card" data-lb="6">
             <div class="fig-thumb-img-wrap">
-              <img src="assets/m2_fig12_storage_dry_mass.png" alt="M2 47-Day Longitudinal RBC Storage Lesion Analysis" loading="lazy">
+              <img src="assets/m2_fig8_storage_area_dry_mass.png" alt="M2 Dry mass and projected area over 47 days of storage" loading="lazy">
               <span class="fig-zoom-badge">Zoom</span>
             </div>
             <div class="fig-thumb-cap">
-              <strong>Fig. 12 · 47-Day Storage Lesion Tracking</strong>
-              Dry-mass agreement (<i>r</i> = 0.966, 1,974 cells) across 11 time points of blood storage.
+              <strong>Fig. 8 · 47-Day Storage</strong>
+              Projected area falls by about 44% in annotation and predictions; per-image dry mass agrees with the annotation within a median 3.9% (<i>r</i> = 0.38).
             </div>
           </div>
         </div>
       </div>
 
       <ul>
-        <li><strong>The physics terms need each other:</strong> The full loss raised boundary F1 from 0.938 to 0.953 (EdgeSAM) and from 0.913 to 0.970 (MobileNet-UNet). Adding only the phase-mask contrast term to Dice dropped EdgeSAM's boundary F1 to 0.386, and boundary-gradient alignment brought it back.</li>
-        <li><strong>Averages hide missing classes:</strong> MobileNet-UNet had the highest boundary F1 in the study (0.971) while predicting no echinocytes and no stomatocytes. Choosing a model on that score alone would have picked the wrong one.</li>
+        <li><strong>Averages hide missing classes:</strong> MobileNet-UNet had the highest AJI (0.551) and a boundary F1 of 0.814 while losing spherocytes and stomatocytes in every seed. EdgeSAM at rank 32 kept every class in every seed (Dice 0.738), and MobileSAM at rank 8 reached the highest Dice (0.810).</li>
+        <li><strong>The physics terms work together on EdgeSAM:</strong> phase-mask contrast lowered the error but did not stop class loss, boundary-gradient alignment removed the lost classes, and integrated-phase preservation gave the lowest error. For MobileSAM and MobileNet-UNet, no single term&rsquo;s effect could be separated from seed-to-seed variation with three seeds.</li>
+        <li><strong>Low-rank adaptation kept classes that full fine-tuning lost:</strong> in single-seed runs, full fine-tuning left MobileSAM with only discocytes (Dice 0.217 against 0.810 with LoRA) and raised EdgeSAM&rsquo;s integrated-phase error from 3.13% to 8.31%.</li>
+        <li><strong>Dry mass across storage:</strong> predicted per-image dry mass agreed with the annotation within a median absolute relative error of 3.9%, but the correlation was weak (r = 0.38), partly because the annotated values span a narrow range (25 to 33 pg).</li>
       </ul>
       <details>
         <summary>Scope, efficiency &amp; limitations</summary>
-        <p>Efficiency figures (4.33 ms per image, 228 FPS, 16.4 MB peak GPU memory, ONNX FP16) are measured on a desktop RTX A5000 GPU; no embedded hardware was tested. Model selection used the validation split, and there was no independent test cohort.</p>
+        <p>With merged rank-8 weights, the EdgeSAM forward pass took 4.11 ms (229 to 277 FPS) in ONNX Runtime with strict FP32 on a desktop RTX A5000; this covers the forward pass only, and no embedded hardware was tested. The configurations shown were chosen after inspecting validation results, and no held-out test cohort was available. Absolute dry mass was not independently validated, the images come from three donors imaged repeatedly over 11 dates, and storage trends were tested with the dates as clusters.</p>
       </details>
       <div class="paper-footer">
         <div class="links">
@@ -2525,7 +2527,7 @@
           I am looking for funded PhD positions starting in <strong>Fall 2027</strong> (or mid-to-late 2027 intakes) in computer vision, vision-language models, and trustworthy AI for healthcare and biomedical imaging. <strong>I am also open to remote research collaborations.</strong>
         </p>
         <p style="margin-bottom:16px;font-size:15px;color:var(--muted);">
-          My manuscripts are in revision or under review and not yet published, so this site gives summaries, figures and code. I am glad to talk through any of the work.
+          My manuscripts are under review and not yet published, so this site gives summaries, figures and code. I am glad to talk through any of the work.
         </p>
         <div class="actions" style="margin-top:0;">
           <a class="btn primary" href="mailto:usamaikram@dgist.ac.kr">Email (DGIST)</a>
@@ -2562,7 +2564,7 @@
 <footer>
   <div class="wrap" style="width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
     <span>Usama Ikram · MS Candidate in Artificial Intelligence, DGIST</span>
-    <span>Last updated October 2026 · M2 in revision (<i>Appl. Phys. B</i>); M1, M3, M4 under review.</span>
+    <span>Last updated October 2026 · M2 revised and resubmitted (<i>Appl. Phys. B</i>); M1, M3, M4 under review.</span>
   </div>
 </footer>
 
@@ -2696,23 +2698,23 @@
       },
       {
         src: 'assets/m2_fig1_framework_overview.png',
-        title: 'M2 · Fig. 1 · Framework overview (in revision, Applied Physics B)',
-        cap: 'Rank-8 LoRA adaptation with the physics-aware loss (EdgeSAM integrated-phase error 5.22% → 3.04%).'
+        title: 'M2 · Fig. 1 · Framework overview (revised and resubmitted, Applied Physics B)',
+        cap: 'LoRA-adapted encoder, trainable decoder and the physics-aware loss acting on background-referenced phase in radians; predicted masks are the measurement domains for area, integrated phase and dry mass.'
       },
       {
-        src: 'assets/m2_fig6_lora_vs_fft_classes.png',
-        title: 'M2 · Fig. 6 · Per-class Dice, LoRA vs. full fine-tuning',
-        cap: 'Full fine-tuning takes echinocyte Dice to 0.000 in all three backbones; rank-8 LoRA keeps all four classes in EdgeSAM (0.776) and MobileSAM (0.852).'
+        src: 'assets/m2_fig3_per_class_dice.png',
+        title: 'M2 · Fig. 3 · Per-class Dice',
+        cap: 'MobileNet-UNet (r=8) loses spherocytes and stomatocytes in every seed despite the highest AJI; EdgeSAM (r=32) and MobileSAM (r=8) keep all four classes. Crosses mark a class lost in a seed.'
       },
       {
-        src: 'assets/m2_fig7_phase_gradient_contours.png',
-        title: 'M2 · Fig. 7 · Contours and phase gradients',
-        cap: 'Predicted contours overlaid on the phase-gradient map.'
+        src: 'assets/m2_fig5_loss_ablation.png',
+        title: 'M2 · Fig. 5 · Component-wise loss ablation',
+        cap: 'Mean Dice and global integrated-phase error as each term is added. EdgeSAM (r=32): 11.20% with Dice alone to 3.02% with the full loss.'
       },
       {
-        src: 'assets/m2_fig12_storage_dry_mass.png',
-        title: 'M2 · Fig. 12 · Dry mass over 47 days of storage',
-        cap: 'Dry mass from predicted vs annotated masks (r = 0.966, median bias 1.5%), 1,974 cells from 11 storage time points.'
+        src: 'assets/m2_fig8_storage_area_dry_mass.png',
+        title: 'M2 · Fig. 8 · Dry mass and projected area over 47 days of storage',
+        cap: 'Per-image dry mass vs annotation (median absolute relative error 3.9%, r = 0.38); projected area falls by about 44% while a dry-mass decrease is not statistically supported.'
       },
       {
         src: 'assets/m3_fig1_delay_framework.png',
