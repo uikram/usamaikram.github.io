@@ -25,8 +25,8 @@ So far that has meant SAM-family segmentation models adapted to quantitative cel
 
 Across my graduate manuscripts (**M1–M4**) and earlier medical imaging projects, one empirical theme recurs: **aggregate benchmark averages routinely conceal who a model fails and whether its output is physically or clinically usable.**
 
-1. **Tail & Subgroup Preservation:** Full fine-tuning maximized aggregate boundary F1 (`0.971`) while erasing rare red-blood-cell morphologies (`0.000` echinocyte Dice across all 3 backbones); rank-8 LoRA preserved all 4 morphological classes (`0.776` on EdgeSAM) (**M2**).
-2. **Measurement over Pixel Overlap:** A 1-pixel contour perturbation shifts per-cell dry mass by `4.8%` while Dice remains `0.974` (**M1**); adding a physics-aware optical mass preservation objective cuts integrated-phase error from `5.22% → 3.04%` on EdgeSAM and `15.52% → 3.01%` on MobileNet-UNet (**M2**).
+1. **Tail & Subgroup Preservation:** MobileNet-UNet reached the highest instance score (AJI `0.551`) while losing the spherocyte and stomatocyte classes in every training seed; LoRA-adapted EdgeSAM (`r=32`) and MobileSAM (`r=8`) kept all 4 morphological classes in every seed, whereas single-seed full fine-tuning left MobileSAM with only discocytes (Dice `0.217` vs `0.810`) (**M2**).
+2. **Measurement over Pixel Overlap:** A 1-pixel contour perturbation shifts per-cell dry mass by `4.8%` while Dice remains `0.974` (**M1**); adding a physics-aware optical mass preservation objective lowers EdgeSAM's integrated-phase error from `11.20%` (Dice only) to `3.02%`, and lowers it against Dice alone in `42` of `45` seed-paired runs, though only `3` of `15` configurations have a 95% interval excluding zero (**M2**).
 3. **Closed-Loop & Evidence Auditing:** A fluent generative VLM (`442.02 ms`) violates a `37.77 ms` closed-loop stability bound by `11.7×` while scoring `51.25%` vs `85.95%` on linear-probe separability (**M3**); mapping `297` associations across `63` paediatric T1D studies shows `100%` (`26/26`) significance in emotional wellbeing versus `68%` (`101/148`) in physiology, exposing selective reporting skew (**M4**).
 
 ---
@@ -40,7 +40,7 @@ Across my graduate manuscripts (**M1–M4**) and earlier medical imaging project
 3. **Explaining & Calibrating Zero-Shot Readout Shifts in Adapted Vision-Language Models** *(Anchored in M3 & Knee OA)*  
    Regularising cross-modal projection alignment when parameter-efficient fine-tuning rotates zero-shot readout (`+6.05%` on EuroSAT vs `−4.37%` on object-centric benchmarks at unchanged `85.69%` linear-probe accuracy in M3); applying concept-level and language-grounded attribution to separate genuine domain transfer from spurious shortcuts; and calibrating clinical VLM uncertainty under noisy or varied prompts.
 4. **Physics- & Measurement-Grounded Learning and Composite Objective Co-Design** *(Anchored in M1 & M2)*  
-   Characterising when known physical operators (angular-spectrum propagation, optical mass conservation) regularise inverse reconstruction and when composite losses conflict (`+1.4` percentage-point dry-mass error increase in M1; `0.386` boundary F1 collapse under isolated contrast loss in M2); training segmentation models directly for downstream clinical and metrological accuracy; and leveraging cross-modality consistency for label-free adaptation.
+   Characterising when known physical operators (angular-spectrum propagation, optical mass conservation) regularise inverse reconstruction and when composite losses conflict (`+1.4` percentage-point dry-mass error increase in M1; in M2, phase-mask contrast alone did not stop class loss on EdgeSAM until boundary-gradient alignment was added); training segmentation models directly for downstream clinical and metrological accuracy; and leveraging cross-modality consistency for label-free adaptation.
 5. **Delay-Aware & Safety-Critical Closed-Loop Perception (Barrier States & Hardware Co-Design)** *(Anchored in M3, M1 & Industry)*  
    Co-designing delay-compensated state estimation and control barrier functions with adaptive-rate VLM perception inside analytical stability bounds (`τ < 37.77 ms` nominal; `18.76 ms` under `±50%` parameter uncertainty); targeting actual memory-bandwidth bottlenecks rather than parameter counts alone (`65%` fewer decoder parameters yielded only `6–7%` GPU speedup in M1); and routing frames between fast contrastive encoders (`17.92 ms`) and generative VLMs on edge hardware (Jetson Nano, RK3588).
 6. **Subpopulation Bias Auditing & Evidence-Weighted Clinical Decision Support** *(Anchored in M4, M2 & ADNI)*  
@@ -50,7 +50,7 @@ Across my graduate manuscripts (**M1–M4**) and earlier medical imaging project
 
 ## Manuscripts
 
-All four manuscripts are first-authored (with **M4** as corresponding author). **M2 is currently in revision** at *Applied Physics B: Lasers and Optics*, and **M1, M3, and M4 are under peer review**. None has been accepted or published yet; detailed summaries, figures, and public code repositories are available on the [website](https://uikram.github.io/usamaikram.github.io) and linked below.
+All four manuscripts are first-authored (with **M4** as corresponding author). **M2 was revised and resubmitted** to *Applied Physics B: Lasers and Optics* in October 2026, and **M1, M3, and M4 are under peer review**. None has been accepted or published yet; detailed summaries, figures, and public code repositories are available on the [website](https://uikram.github.io/usamaikram.github.io) and linked below.
 
 ### M1 · Joint Phase Reconstruction and Cell Segmentation from Raw Holograms for Per-Cell Dry-Mass Measurement
 * **Authors:** **Usama Ikram**, Inkyu Moon
@@ -63,12 +63,13 @@ All four manuscripts are first-authored (with **M4** as corresponding author). *
 
 ### M2 · Physics-Aware Lightweight Segmentation for Quantitative Holographic Cell Analysis with Optical Mass Preservation
 * **Authors:** **Usama Ikram**, Youhyun Kim, Inkyu Moon
-* **Status:** **In revision**, *Applied Physics B: Lasers and Optics* · [Public Code](https://github.com/uikram/Lightweight_QPI_Segmentation)
-* **Summary:** Introduces a composite physics-aware segmentation loss (phase-mask contrast, boundary-gradient alignment, and integrated-phase preservation) paired with rank-8 LoRA adaptation across EdgeSAM, MobileSAM, and MobileNet-UNet on `1,090` annotated red-blood-cell quantitative phase images across four morphological classes.
+* **Status:** **Revised and resubmitted** (October 2026), *Applied Physics B: Lasers and Optics* · [Public Code](https://github.com/uikram/Lightweight_QPI_Segmentation)
+* **Summary:** Introduces a composite physics-aware segmentation loss (phase-mask contrast, boundary-gradient alignment, and integrated-phase preservation), computed on background-referenced phase in radians, with LoRA adaptation of EdgeSAM, MobileSAM, and MobileNet-UNet on `248` single-channel 32-bit red-blood-cell phase maps (`182` training, `66` validation, `2,049` annotated validation cells) with four morphological classes. Each architecture was trained at five LoRA ranks with four loss configurations and three seeds (`180` runs).
 * **Key Findings:**
-  * Cut integrated-phase (dry-mass) error from `5.22% → 3.04%` on EdgeSAM and `15.52% → 3.01%` on MobileNet-UNet while improving boundary F1 (`0.938 → 0.953` on EdgeSAM; `0.913 → 0.970` on MobileNet-UNet); using the phase-mask contrast term alone collapsed boundary F1 to `0.386`.
-  * Full fine-tuning erased the minority echinocyte class (`0.000` Dice) across all three backbones, whereas rank-8 LoRA preserved all four classes in EdgeSAM (`0.776`) and MobileSAM (`0.594`).
-  * Validated on `1,974` RBCs across a 47-day longitudinal blood storage cohort (`r = 0.966`, median bias `1.5%`, `4.33 ms` / `228 FPS` ONNX FP16).
+  * EdgeSAM (`r=32`), the primary configuration, kept all four classes in every seed (Dice `0.738 ± 0.006`, integrated-phase error `3.02 ± 0.84%`, AJI `0.335`); MobileSAM (`r=8`) reached the highest Dice (`0.810`) and lowest error (`1.32%`); MobileNet-UNet had the highest AJI (`0.551`) but lost spherocytes and stomatocytes in every seed.
+  * On EdgeSAM (`r=32`), Dice alone gave `11.20%` integrated-phase error and lost a class in two of three seeds; adding phase-mask contrast, then boundary-gradient alignment, then integrated-phase preservation reduced it to `7.45%`, `3.64%`, and `3.02%`, with no class lost. For MobileSAM and MobileNet-UNet, no single term's effect was separable from seed-to-seed variation.
+  * Over a 47-day, 11-timepoint storage study, projected cell area fell by about `44%` in both annotation and predictions, while a dry-mass decrease was not statistically supported under date-clustered permutation tests; predicted per-image dry mass agreed with the annotation within a median absolute relative error of `3.9%` (`r = 0.38`). Absolute dry mass was not independently validated, and no held-out test cohort was available.
+  * Merged rank-8 EdgeSAM forward pass: `4.11 ms` (`229–277 FPS`) in ONNX Runtime, strict FP32, RTX A5000.
 
 ### M3 · Delay-Aware Deployability of Multimodal Foundation Models for Real-Time Human-Robot Interaction
 * **Authors:** **Usama Ikram**, Youhyun Kim, Inkyu Moon
