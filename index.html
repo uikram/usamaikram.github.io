@@ -1728,7 +1728,7 @@
           <strong>PhD, Fall 2027:</strong> I am looking for a funded PhD position starting in Fall 2027 (or a mid to late 2027 intake) in multimodal AI, vision-language models and computer vision for healthcare and biomedical imaging, with a focus on explainable and trustworthy AI. I am also open to remote research collaborations.
         </p>
         <div class="actions">
-          <a class="btn primary" href="Usama_Ikram_CV.pdf">
+          <a class="btn primary" href="assets/Usama_Ikram_CV.pdf">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
             CV (PDF)
           </a>
@@ -1787,11 +1787,11 @@
       <div class="thesis-pillars">
         <div class="tp-card">
           <strong>1. Rare classes</strong>
-          <span>The model with the highest instance score (AJI 0.551) lost spherocytes and stomatocytes in every training seed. With rank-8 LoRA, MobileSAM kept all four classes; full fine-tuning left it with one (<a href="#m2">M2</a>).</span>
+          <span>MobileNet-UNet reproduced the integrated phase of 93.4% of cells to within 5%, the best of the three models, yet lost two or three of the four cell classes in two of three seeds. LoRA-adapted EdgeSAM and MobileSAM kept all four (<a href="#m2">M2</a>).</span>
         </div>
         <div class="tp-card">
           <strong>2. Measurements, not only overlap</strong>
-          <span>Moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974 (<a href="#m1">M1</a>). On EdgeSAM, the physics-aware loss lowered integrated-phase error from 11.20% with Dice alone to 3.02% (<a href="#m2">M2</a>).</span>
+          <span>Moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974 (<a href="#m1">M1</a>). Constraining the phase of each cell raised the share of cells within 5% of the reference in every paired run, with no significant change in mean Dice (<a href="#m2">M2</a>).</span>
         </div>
         <div class="tp-card">
           <strong>3. Timing and evidence</strong>
@@ -1829,12 +1829,12 @@
       </a>
 
       <a class="mtile reveal" href="#m2" data-tags="vlm qpi trust edge">
-        <img class="mtile-thumb" src="assets/m2_fig1_framework_overview.png" alt="M2 physics-aware LoRA segmentation overview" loading="lazy">
+        <img class="mtile-thumb" src="assets/m2_fig1_framework.png" alt="M2 framework: phase preprocessing, LoRA-adapted network, Dice + cIPP objective, per-cell readouts" loading="lazy">
         <div class="top"><span class="mid">M2</span><span class="status in-revision">Resubmitted · Applied Physics B</span></div>
         <div class="area">Segmentation · LoRA · SAM-family models</div>
         <h3>Adapting lightweight SAM models to cell phase images</h3>
-        <p class="tile-desc">A physics-aware loss and LoRA for EdgeSAM, MobileSAM and MobileNet-UNet on red blood cell phase maps in radians, 180 runs, applied over 47 days of storage.</p>
-        <div class="stat"><div class="v">11.20% → 3.02%</div><div class="l">integrated-phase error (EdgeSAM, r=32)<br>Dice only → physics-aware loss</div></div>
+        <p class="tile-desc">A cell-level integrated-phase loss (cIPP) and LoRA for EdgeSAM, MobileSAM and MobileNet-UNet on red blood cell phase maps in radians, 315 runs, applied over 47 days of storage.</p>
+        <div class="stat"><div class="v">59.9% → 77.5%</div><div class="l">cells within 5% of reference integrated phase<br>(EdgeSAM, Dice only → Dice + cIPP)</div></div>
       </a>
 
       <a class="mtile reveal" href="#m3" data-tags="vlm edge trust">
@@ -1856,7 +1856,7 @@
       </a>
     </div>
     <p class="overview-note">
-      <strong>Status:</strong> I am first author on all four manuscripts and corresponding author on M4. <strong>M2 was revised and resubmitted to <i>Applied Physics B: Lasers and Optics</i> in October 2026</strong>; M1, M3 and M4 are under review. None is published yet, so summaries, figures and code are given on this page.
+      <strong>Status:</strong> I am first author on all four manuscripts and corresponding author on M4. <strong>M2 has been revised and resubmitted to <i>Applied Physics B: Lasers and Optics</i></strong>; M1, M3 and M4 are under review. None is published yet, so summaries, figures and code are given on this page.
     </p>
   </div>
 </section>
@@ -1873,7 +1873,7 @@
         <div class="ri-num">01</div>
         <h3>What adaptation keeps and what it loses</h3>
         <p>
-          When I adapt a pretrained model to a small, imbalanced dataset, the average score does not tell me enough. In <a href="#m2">M2</a>, MobileSAM kept all four cell classes with rank-8 LoRA, while full fine-tuning (one seed) kept only discocytes. In <a href="#m3">M3</a>, LoRA-CLIP kept its linear-probe accuracy (85.69% against 85.95%) but its zero-shot accuracy moved: up 6.05% on EuroSAT and down 4.37% on object-centric datasets.
+          When I adapt a pretrained model to a small, imbalanced dataset, the average score does not tell me enough. In <a href="#m2">M2</a>, full fine-tuning of MobileSAM reproduced the integrated phase of more cells than LoRA (93.4% against 90.9% within 5%) but lost a cell class in two of three seeds, while LoRA at rank 32 kept all four. In <a href="#m3">M3</a>, LoRA-CLIP kept its linear-probe accuracy (85.69% against 85.95%) but its zero-shot accuracy moved: up 6.05% on EuroSAT and down 4.37% on object-centric datasets.
         </p>
         <ul class="ri-q">
           <li>Which parts of a pretrained model carry the rare classes, and can adaptation be limited so it does not overwrite them?</li>
@@ -1886,7 +1886,7 @@
         <div class="ri-num">02</div>
         <h3>Models judged on the measurement</h3>
         <p>
-          In holographic microscopy, a cell's dry mass is the phase integrated over its mask, so the mask is part of the measurement. In <a href="#m1">M1</a>, moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974. In <a href="#m2">M2</a>, an integrated-phase term gave EdgeSAM its lowest integrated-phase error (3.02% against 11.20% for Dice alone), although with three seeds most such gains could not be separated from seed-to-seed variation, and in <a href="#m1">M1</a> similar terms made dry-mass error slightly worse when phase and mask were learned together from raw holograms.
+          In holographic microscopy, a cell's dry mass is the phase integrated over its mask, so the mask is part of the measurement. In <a href="#m1">M1</a>, moving every reference boundary out by one pixel changed dry mass by 4.8% while Dice stayed at 0.974. In <a href="#m2">M2</a>, constraining the integrated phase of each cell, rather than of the whole image, raised the share of cells reproduced to within 5% in every paired run of all three architectures without a significant change in mean Dice; in <a href="#m1">M1</a>, similar terms made dry-mass error slightly worse when phase and mask were learned together from raw holograms.
         </p>
         <ul class="ri-q">
           <li>When do physical constraints help a model learn, and when do they compete with the main objective?</li>
@@ -2056,61 +2056,61 @@
       <h3>Physics-Aware Lightweight Segmentation for Quantitative Holographic Cell Analysis with Optical Mass Preservation</h3>
       <p class="authors"><b>Usama Ikram</b>, Youhyun Kim, Inkyu Moon</p>
       <p>
-        In quantitative phase imaging, the predicted cell contour is the region over which phase is integrated to get dry mass, yet a standard overlap loss places no constraint on that phase. This work adds a physics-aware loss with three terms (phase-mask contrast, boundary-gradient alignment and integrated-phase preservation), computed on background-referenced phase in radians, to a class-weighted Dice loss, and uses LoRA to adapt EdgeSAM, MobileSAM and a MobileNet-UNet to 248 single-channel 32-bit phase maps of red blood cells with four morphology classes (discocytes, spherocytes, echinocytes and stomatocytes). Each architecture was trained at five LoRA ranks with four loss configurations and three seeds, 180 runs in total. Numbers and figures below are from the revised manuscript (October 2026).
+        In quantitative phase imaging, the predicted cell boundary is the region over which phase is integrated to get dry mass, yet an overlap loss such as Dice places no constraint on that phase. This work treats the predicted boundary as a measurement domain: a cell-level integrated-phase preservation (cIPP) term, computed on background-referenced phase in radians, constrains the phase inside each predicted cell and is added to a class-weighted Dice loss. Pretrained encoders of MobileSAM, EdgeSAM and a MobileNet-UNet are adapted with LoRA to 248 single-channel 32-bit phase maps of red blood cells with four morphology classes (discocytes, spherocytes, echinocytes and stomatocytes). Each architecture was trained at four LoRA ranks and with full fine-tuning, under seven loss configurations and three seeds (315 runs). The LoRA rank was chosen on 41 held-out validation images, and results are reported on 66 test images (2,563 scored cells) recorded over 47 days of storage.
       </p>
 
       <div class="figures">
-        <div><div class="num">11.20% → 3.02%</div><div class="lab">integrated-phase error on EdgeSAM (r=32), Dice only → full loss; with the full loss no class was lost in any seed</div></div>
-        <div><div class="num">42 / 45</div><div class="lab">seed-paired runs in which the full loss lowered integrated-phase error against Dice alone; the 95% interval excluded zero in 3 of 15 configurations</div></div>
-        <div><div class="num">−44% area</div><div class="lab">projected cell area, early vs late storage, in both annotation and predictions; a dry-mass decrease was not statistically supported</div></div>
+        <div><div class="num">12 / 12</div><div class="lab">paired runs per architecture in which Dice + cIPP raised the share of cells within 5% over Dice alone (Holm-adjusted p = 0.0029), with no significant change in mean Dice</div></div>
+        <div><div class="num">80.0% → 87.1%</div><div class="lab">cells within 5% when cIPP replaced the whole-image phase term in the full objective (36 of 36 paired runs)</div></div>
+        <div><div class="num">90.9%</div><div class="lab">of cells within 5% for MobileSAM (r = 32), all four classes kept in every seed; matched-cell dry mass within a median 1.1% of the annotation</div></div>
       </div>
 
       <!-- Visual Empirical Breakdown -->
       <div class="viz-card">
         <div class="viz-title">
-          <span>Loss ablation and what an aggregate score hides</span>
-          <span>248 phase maps · 2,049 validation cells · 3 seeds</span>
+          <span>Loss configurations and what an aggregate score hides</span>
+          <span>248 phase maps · 2,563 scored test cells · 315 runs</span>
         </div>
         <div class="viz-grid">
           <div class="bar-group">
-            <div class="bar-group-label">Integrated-phase error, EdgeSAM r=32 (lower is better)</div>
+            <div class="bar-group-label">EdgeSAM: cells within 5% of reference integrated phase (mean of 12 LoRA runs, higher is better)</div>
             <div class="bar-row">
               <span class="b-name">Dice only</span>
-              <div class="b-track"><div class="b-fill warn" data-width="95%"></div></div>
-              <span class="b-val">11.20%</span>
+              <div class="b-track"><div class="b-fill muted" data-width="59.9%"></div></div>
+              <span class="b-val">59.9%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">+ phase-mask contrast</span>
-              <div class="b-track"><div class="b-fill muted" data-width="63.2%"></div></div>
-              <span class="b-val">7.45%</span>
+              <span class="b-name">+ PMC + BGA</span>
+              <div class="b-track"><div class="b-fill muted" data-width="59.9%"></div></div>
+              <span class="b-val">59.9%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">+ boundary-gradient</span>
-              <div class="b-track"><div class="b-fill muted" data-width="30.9%"></div></div>
-              <span class="b-val">3.64%</span>
+              <span class="b-name">Full, global IPP</span>
+              <div class="b-track"><div class="b-fill muted" data-width="67.8%"></div></div>
+              <span class="b-val">67.8%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">+ integrated-phase (full)</span>
-              <div class="b-track"><div class="b-fill" data-width="25.6%"></div></div>
-              <span class="b-val">3.02%</span>
+              <span class="b-name">+ cIPP (proposed)</span>
+              <div class="b-track"><div class="b-fill" data-width="77.5%"></div></div>
+              <span class="b-val">77.5%</span>
             </div>
           </div>
           <div class="bar-group">
-            <div class="bar-group-label">Instance score (AJI): MobileNet-UNet scores highest yet lost two classes in every seed</div>
+            <div class="bar-group-label">Selected configurations: MobileNet-UNet reproduces the most cells yet lost classes in two of three seeds</div>
             <div class="bar-row">
-              <span class="b-name">MobileNet-UNet r=8</span>
-              <div class="b-track"><div class="b-fill warn" data-width="55.1%"></div></div>
-              <span class="b-val">0.551</span>
+              <span class="b-name">MobileNet-UNet r=16</span>
+              <div class="b-track"><div class="b-fill warn" data-width="93.4%"></div></div>
+              <span class="b-val">93.4%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">EdgeSAM r=32</span>
-              <div class="b-track"><div class="b-fill" data-width="33.5%"></div></div>
-              <span class="b-val">0.335</span>
+              <span class="b-name">MobileSAM r=32</span>
+              <div class="b-track"><div class="b-fill" data-width="90.9%"></div></div>
+              <span class="b-val">90.9%</span>
             </div>
             <div class="bar-row">
-              <span class="b-name">MobileSAM r=8</span>
-              <div class="b-track"><div class="b-fill" data-width="26.2%"></div></div>
-              <span class="b-val">0.262</span>
+              <span class="b-name">EdgeSAM r=8</span>
+              <div class="b-track"><div class="b-fill" data-width="74.5%"></div></div>
+              <span class="b-val">74.5%</span>
             </div>
           </div>
         </div>
@@ -2125,60 +2125,60 @@
         <div class="fig-strip">
           <div class="fig-thumb-card" data-lb="3">
             <div class="fig-thumb-img-wrap">
-              <img src="assets/m2_fig1_framework_overview.png" alt="M2 Framework Overview" loading="lazy">
+              <img src="assets/m2_fig1_framework.png" alt="M2 Fig. 1 framework overview" loading="lazy">
               <span class="fig-zoom-badge">Zoom</span>
             </div>
             <div class="fig-thumb-cap">
-              <strong>Fig. 1 · Physics-Aware LoRA Pipeline</strong>
-              Background-referenced phase in radians enters the loss directly; the predicted masks are the measurement domains for area, integrated phase and dry mass.
+              <strong>Fig. 1 · Framework</strong>
+              Background-referenced phase, a LoRA-adapted encoder, the Dice + cIPP objective, and watershed separation with per-cell readouts.
             </div>
           </div>
           <div class="fig-thumb-card" data-lb="4">
             <div class="fig-thumb-img-wrap">
-              <img src="assets/m2_fig3_per_class_dice.png" alt="M2 Per-Class Dice of the compared configurations" loading="lazy">
+              <img src="assets/m2_fig3_objective_comparison.png" alt="M2 Fig. 3 comparison of the seven loss configurations" loading="lazy">
               <span class="fig-zoom-badge">Zoom</span>
             </div>
             <div class="fig-thumb-cap">
-              <strong>Fig. 3 · Per-Class Dice</strong>
-              MobileNet-UNet loses spherocytes and stomatocytes in every seed; EdgeSAM (r=32) and MobileSAM (r=8) keep all four classes.
+              <strong>Fig. 3 · Seven Loss Configurations</strong>
+              Share of cells within 5%, matched-cell error and global error for every LoRA run; the proposed objective is shaded.
             </div>
           </div>
           <div class="fig-thumb-card" data-lb="5">
             <div class="fig-thumb-img-wrap">
-              <img src="assets/m2_fig5_loss_ablation.png" alt="M2 Component-wise loss ablation" loading="lazy">
+              <img src="assets/m2_fig7_dry_mass_agreement.png" alt="M2 Fig. 7 single-cell dry-mass agreement" loading="lazy">
               <span class="fig-zoom-badge">Zoom</span>
             </div>
             <div class="fig-thumb-cap">
-              <strong>Fig. 5 · Loss Ablation</strong>
-              Adding each physics term in turn: on EdgeSAM, boundary-gradient alignment removes the lost classes and integrated-phase preservation gives the lowest error.
+              <strong>Fig. 7 · Single-Cell Dry Mass</strong>
+              Predicted against reference dry mass of matched cells, with Bland–Altman plots, at the selected configurations (seed 42).
             </div>
           </div>
           <div class="fig-thumb-card" data-lb="6">
             <div class="fig-thumb-img-wrap">
-              <img src="assets/m2_fig8_storage_area_dry_mass.png" alt="M2 Dry mass and projected area over 47 days of storage" loading="lazy">
+              <img src="assets/m2_fig8_storage_time.png" alt="M2 Fig. 8 storage-time trends" loading="lazy">
               <span class="fig-zoom-badge">Zoom</span>
             </div>
             <div class="fig-thumb-cap">
               <strong>Fig. 8 · 47-Day Storage</strong>
-              Projected area falls by about 44% in annotation and predictions; per-image dry mass agrees with the annotation within a median 3.9% (<i>r</i> = 0.38).
+              Per-day area and dry mass for the annotation and predictions, the prediction − annotation difference, and the annotated class composition.
             </div>
           </div>
         </div>
       </div>
 
       <ul>
-        <li><strong>Averages hide missing classes:</strong> MobileNet-UNet had the highest AJI (0.551) and a boundary F1 of 0.814 while losing spherocytes and stomatocytes in every seed. EdgeSAM at rank 32 kept every class in every seed (Dice 0.738), and MobileSAM at rank 8 reached the highest Dice (0.810).</li>
-        <li><strong>The physics terms work together on EdgeSAM:</strong> phase-mask contrast lowered the error but did not stop class loss, boundary-gradient alignment removed the lost classes, and integrated-phase preservation gave the lowest error. For MobileSAM and MobileNet-UNet, no single term&rsquo;s effect could be separated from seed-to-seed variation with three seeds.</li>
-        <li><strong>Low-rank adaptation kept classes that full fine-tuning lost:</strong> in single-seed runs, full fine-tuning left MobileSAM with only discocytes (Dice 0.217 against 0.810 with LoRA) and raised EdgeSAM&rsquo;s integrated-phase error from 3.13% to 8.31%.</li>
-        <li><strong>Dry mass across storage:</strong> predicted per-image dry mass agreed with the annotation within a median absolute relative error of 3.9%, but the correlation was weak (r = 0.38), partly because the annotated values span a narrow range (25 to 33 pg).</li>
+        <li><strong>Cell-level, not whole-image, phase preservation:</strong> adding cIPP to Dice raised the mean share of cells within 5% from 59.9% to 77.5% for EdgeSAM, 84.9% to 91.0% for MobileSAM and 71.8% to 93.8% for MobileNet-UNet (median paired gains +16.4, +1.5 and +25.5 points). Mean Dice did not change significantly, and a lower whole-image phase error did not imply better per-cell fidelity.</li>
+        <li><strong>A simpler objective:</strong> phase-mask contrast and boundary-gradient alignment added no consistent gain once cIPP was present, so Dice + cIPP is the proposed objective. With individual cells as the unit and storage days as blocks, the gain stayed significant for EdgeSAM and MobileNet-UNet but not for MobileSAM (+1.5 points).</li>
+        <li><strong>Delineation and classification fail separately:</strong> at the selected ranks, MobileSAM (r = 32, mean Dice 0.809) and EdgeSAM (r = 8, 0.724) kept all four classes in every seed. MobileNet-UNet (r = 16) delineated cells best but lost two or three classes in two of three seeds (mean Dice 0.472), and is reported as a failure case.</li>
+        <li><strong>Dry mass and storage:</strong> matched-cell dry mass deviated from the annotation-derived value by a median 1.9%, 1.1% and 0.9%. A few cells merged with a touching neighbour set the 95% limits of agreement (about ±4–6 pg). Over 47 days, predictions reproduced the decrease in cell area, but the predicted dry mass showed a storage-dependent bias against the annotation.</li>
       </ul>
       <details>
         <summary>Scope, efficiency &amp; limitations</summary>
-        <p>With merged rank-8 weights, the EdgeSAM forward pass took 4.11 ms (229 to 277 FPS) in ONNX Runtime with strict FP32 on a desktop RTX A5000; this covers the forward pass only, and no embedded hardware was tested. The configurations shown were chosen after inspecting validation results, and no held-out test cohort was available. Absolute dry mass was not independently validated, the images come from three donors imaged repeatedly over 11 dates, and storage trends were tested with the dates as clusters.</p>
+        <p>With merged LoRA weights, the forward pass in ONNX Runtime took 3.38 ms for EdgeSAM (296 images/s) and 25.07 ms for MobileSAM, in strict FP32 on a desktop RTX A5000. This covers the forward pass only, and no embedded hardware was tested. The ranks were chosen on held-out validation images, but no independent test cohort was available, and the images come from one sample series (three donors imaged repeatedly over 11 dates). Dry-mass agreement compares two segmentations of the same phase maps; absolute dry mass was not independently validated. Touching cells are separated by a watershed rather than by the network, and cIPP did not prevent the loss of minority classes.</p>
       </details>
       <div class="paper-footer">
         <div class="links">
-          <a class="btn sm" href="https://github.com/uikram/Lightweight_QPI_Segmentation" target="_blank" rel="noopener">
+          <a class="btn sm" href="https://github.com/uikram/Physics-Aware-Lightweight-Segmentation-for-Quantitative-Holographic-Cell-Analysis-with-Optical-Mass-" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub Repository <span class="arrow-icon">→</span>
           </a>
@@ -2532,7 +2532,7 @@
         <div class="actions" style="margin-top:0;">
           <a class="btn primary" href="mailto:usamaikram@dgist.ac.kr">Email (DGIST)</a>
           <button class="btn" id="copyEmailBtn" type="button" data-email="usamaikram@dgist.ac.kr">Copy Email Address</button>
-          <a class="btn" href="Usama_Ikram_CV.pdf">Download CV (PDF)</a>
+          <a class="btn" href="assets/Usama_Ikram_CV.pdf">Download CV (PDF)</a>
         </div>
       </div>
       <div class="contact-links">
@@ -2564,7 +2564,7 @@
 <footer>
   <div class="wrap" style="width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
     <span>Usama Ikram · MS Candidate in Artificial Intelligence, DGIST</span>
-    <span>Last updated October 2026 · M2 revised and resubmitted (<i>Appl. Phys. B</i>); M1, M3, M4 under review.</span>
+    <span>Last updated November 2026 · M2 revised and resubmitted (<i>Appl. Phys. B</i>); M1, M3, M4 under review.</span>
   </div>
 </footer>
 
@@ -2697,24 +2697,24 @@
         cap: 'Moving every reference boundary out by one pixel changes dry mass by 4.8% (in by one pixel, −4.7%) while Dice stays at 0.974.'
       },
       {
-        src: 'assets/m2_fig1_framework_overview.png',
+        src: 'assets/m2_fig1_framework.png',
         title: 'M2 · Fig. 1 · Framework overview (revised and resubmitted, Applied Physics B)',
-        cap: 'LoRA-adapted encoder, trainable decoder and the physics-aware loss acting on background-referenced phase in radians; predicted masks are the measurement domains for area, integrated phase and dry mass.'
+        cap: '(A) Phase preprocessing with an annotation-free background reference. (B) A pretrained lightweight encoder adapted with LoRA and a trainable decoder. (C) Training objective, Dice + cIPP. (D) Inference with watershed separation of touching cells and per-cell readouts.'
       },
       {
-        src: 'assets/m2_fig3_per_class_dice.png',
-        title: 'M2 · Fig. 3 · Per-class Dice',
-        cap: 'MobileNet-UNet (r=8) loses spherocytes and stomatocytes in every seed despite the highest AJI; EdgeSAM (r=32) and MobileSAM (r=8) keep all four classes. Crosses mark a class lost in a seed.'
+        src: 'assets/m2_fig3_objective_comparison.png',
+        title: 'M2 · Fig. 3 · Seven loss configurations',
+        cap: 'Share of cells within 5%, matched-cell IPE and global IPE (logarithmic axis) of the seven loss configurations for (a) EdgeSAM, (b) MobileSAM and (c) MobileNet-UNet. Points: LoRA runs (four ranks × three seeds); bars: medians; shaded: proposed objective.'
       },
       {
-        src: 'assets/m2_fig5_loss_ablation.png',
-        title: 'M2 · Fig. 5 · Component-wise loss ablation',
-        cap: 'Mean Dice and global integrated-phase error as each term is added. EdgeSAM (r=32): 11.20% with Dice alone to 3.02% with the full loss.'
+        src: 'assets/m2_fig7_dry_mass_agreement.png',
+        title: 'M2 · Fig. 7 · Single-cell dry-mass agreement',
+        cap: 'Dry-mass agreement of matched cells at the selected configurations (seed 42). (a–c) Predicted versus reference dry mass (dashed: identity). (d–f) Bland–Altman plots with bias (solid) and 95% limits of agreement (dashed).'
       },
       {
-        src: 'assets/m2_fig8_storage_area_dry_mass.png',
-        title: 'M2 · Fig. 8 · Dry mass and projected area over 47 days of storage',
-        cap: 'Per-image dry mass vs annotation (median absolute relative error 3.9%, r = 0.38); projected area falls by about 44% while a dry-mass decrease is not statistically supported.'
+        src: 'assets/m2_fig8_storage_time.png',
+        title: 'M2 · Fig. 8 · Storage time',
+        cap: '(a) Projected cell area and (b) dry mass: per-day medians of per-image medians for the annotation (black) and the selected configurations. (c) Prediction − annotation difference in per-day median dry mass. (d) Annotated class composition.'
       },
       {
         src: 'assets/m3_fig1_delay_framework.png',
