@@ -27,7 +27,7 @@ Across my graduate manuscripts (**M1–M4**) and earlier medical imaging project
 
 1. **Tail & Subgroup Preservation:** MobileNet-UNet reproduced the integrated phase of `93.4%` of cells to within 5%, the best of the three models, yet lost two or three of the four morphological classes in two of three seeds; LoRA-adapted EdgeSAM (`r=8`) and MobileSAM (`r=32`) kept all four classes in every seed, whereas full fine-tuning of MobileSAM lost a class in two of three seeds (**M2**).
 2. **Measurement over Pixel Overlap:** A 1-pixel contour perturbation shifts per-cell dry mass by `4.8%` while Dice remains `0.974` (**M1**); adding a cell-level integrated-phase preservation term (cIPP) to Dice raises the share of cells reproduced to within 5% in all `12` paired runs of every architecture (EdgeSAM `59.9%` → `77.5%`; Holm-adjusted p = `0.0029`) without a significant change in mean Dice (**M2**).
-3. **Closed-Loop & Evidence Auditing:** A fluent generative VLM (`442.02 ms`) violates a `37.77 ms` closed-loop stability bound by `11.7×` while scoring `51.25%` vs `85.95%` on linear-probe separability (**M3**); mapping `297` associations across `63` paediatric T1D studies shows `100%` (`26/26`) significance in emotional wellbeing versus `68%` (`101/148`) in physiology, exposing selective reporting skew (**M4**).
+3. **Closed-Loop & Evidence Auditing:** A fluent generative VLM (`442.02 ms`) violates a `37.77 ms` closed-loop stability bound by `11.7×` while scoring `51.25%` vs `85.95%` on linear-probe separability (**M3**); mapping `297` associations across `63` paediatric T1D studies shows `100%` (`26/26`) significance in emotional wellbeing versus `68%` (`101/148`) in physiology, a gap that may partly reflect how these factors are studied and reported (**M4**).
 
 ---
 
@@ -50,7 +50,7 @@ Across my graduate manuscripts (**M1–M4**) and earlier medical imaging project
 
 ## Manuscripts
 
-All four manuscripts are first-authored (with **M4** as corresponding author). **M2 has been revised and resubmitted** to *Applied Physics B: Lasers and Optics*, and **M1, M3, and M4 are under peer review**. None has been accepted or published yet; detailed summaries, figures, and public code repositories are available on the [website](https://uikram.github.io/usamaikram.github.io) and linked below.
+All four manuscripts are first-authored (with **M4** as corresponding author). **M2 has been revised and resubmitted** to *Applied Physics B: Lasers and Optics*, **M4 is under revision** at *Pediatric Diabetes*, and **M1 and M3 are under peer review**. None has been accepted or published yet; detailed summaries, figures, and public code repositories are available on the [website](https://uikram.github.io/usamaikram.github.io) and linked below.
 
 ### M1 · Joint Phase Reconstruction and Cell Segmentation from Raw Holograms for Per-Cell Dry-Mass Measurement
 * **Authors:** **Usama Ikram**, Inkyu Moon
@@ -81,7 +81,7 @@ All four manuscripts are first-authored (with **M4** as corresponding author). *
 
 ### M4 · Determinants of Glycaemic Outcomes in Children and Adolescents with Type 1 Diabetes: A Systematic Review and Evidence Map
 * **Authors:** **Usama Ikram** *(corresponding author)*, Abey Jose, Francisca C. Eyzaguirre, Alejandro Mac Cawley
-* **Status:** Under review, *Pediatric Diabetes* · PROSPERO `CRD420251045872`
+* **Status:** Under revision, *Pediatric Diabetes* · PROSPERO `CRD420251045872`
 * **Summary:** PRISMA 2020 systematic review and MMAT quality appraisal screening `5,406` records across PubMed, Embase, Scopus, and Web of Science to synthesise `63` studies and `297` factor-study associations into the **PEARL framework** (`47` determinants across `12` sub-domains and `5` domains: Physiology & Clinical Status, Emotional & Psychological Wellbeing, Autonomy & Engagement in Self-Care, Relationships & Family Dynamics, and Lifestyle, Learning & Living Environment).
 * **Key Findings:**
   * Physiology accounted for `31.9%` of distinct determinants (`15/47`) but `49.8%` of all tested associations (`148/297`), while nine determinants rested on a single study.
